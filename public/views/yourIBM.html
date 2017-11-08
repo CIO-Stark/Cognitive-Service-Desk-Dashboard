@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<!-- saved from url=(0019)https://w3.ibm.com/ -->
+<html class="default" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<script type="text/javascript">
+
+			var url = window.location.href;
+			var isLocal = window.location.hostname.indexOf("local") > -1;
+
+			if (url.substring(0,5) == "http:" && !isLocal && ! localStorage.getItem("ignore-forced-https"))
+				window.location = "https:" + url.substring(5);
+
+
+			// Define cache_buster as the global variable
+			Object.defineProperty(window, 'cache_buster', {
+				value : {},
+				enumerable : true
+			});
+			
+			Object.defineProperty(cache_buster, 'version', {
+				value : {},
+				writable : true,
+				enumerable : true
+			});
+
+			Object.defineProperty(cache_buster, 'hver', {
+				value : {},
+				writable : true,
+				enumerable : true
+			});
+
+
+			/*    Redirect back to IBM Workplace
+			--------------------------------------*/
+			var lang;
+
+			if (navigator.languages)
+				lang = navigator.languages[0] || navigator.language || navigator.userLanguage || "";
+			else
+				lang = navigator.userLanguage || navigator.language || "";
+
+			// do it.. or don't.
+//			if (lang.toLowerCase() == "fr-ca")
+//				window.parent.location.replace("https://w3-workplace.ibm.com/workplace/myportal/");
+
+
+			/*	Setup cache_buster.hver for cache buster
+			--------------------------------------*/
+			
+			var cache_buster_enabler, xmlhttp;
+			// Check the Cache Buster Enabler
+			cache_buster_enabler = localStorage.getItem('cache_buster.enabler') || "true";
+			
+			if(!isLocal && cache_buster_enabler == "true"){
+				if (window.XMLHttpRequest)
+				{
+					// code for IE7+, Firefox, Chrome, Opera, Safari
+					xmlhttp=new XMLHttpRequest();
+				} else {
+					// code for IE6, IE5
+					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+		
+				// Go get the current version number
+				var timestamp = (function () {
+						var now = new Date();
+						return (
+							now.getFullYear() +
+							((now.getMonth()<10)?'0':'') + (now.getMonth()+1) +
+							((now.getDate()<9)?'0':'') + now.getDate() +
+							((now.getHours()<9)?'0':'') + now.getHours() +
+							((now.getMinutes()<9)?'0':'') + now.getMinutes() +
+							((now.getSeconds()<9)?'0':'') + now.getSeconds()
+						);
+					})();
+				xmlhttp.open("GET","version/ts.txt?ts="+timestamp,false);
+				xmlhttp.send();
+				cache_buster.version = xmlhttp.responseText;
+				cache_buster.hver = "hver/" + cache_buster.version + "/";
+			}else{
+				cache_buster.hver = "";
+			}
+		</script>
+		<title>yourIBM</title>
+		<link rel="icon" type="image/png" href="https://w3.ibm.com/images/favicon.png">
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="./yourIBM_files/w3n.min.css">
+	<style type="text/css">
+.awf-bucket-item:nth-child(n+6) {
+	display: none;
+}
+
+.search-bucket--command .awf-bucket-item:nth-child(n) {
+	display: block;
+}
+
+.search-bucket--command .awf-bucket-item:nth-child(n+43) {
+	display: none;
+}
+</style><script type="text/javascript" src="./yourIBM_files/eluminate.js"></script><style type="text/css" media="print">.usabilla_live_button_container { display: none; }</style><script language="javascript" type="text/javascript" src="./yourIBM_files/51040000.js"></script><script language="javascript" type="text/javascript" src="./yourIBM_files/dispatcher-v3.js"></script><style type="text/css">[data-feature="w3id_pilot"],[data-feature="w3id_rr"],[data-feature="w3id_pilot_ls"],[data-feature="events"],[data-feature="environments"],[data-feature="metrics"],[data-feature="abilities"],[data-feature="search"],[data-feature="banner"],[data-feature="experiences"],[data-feature="cogs"],[data-feature="TPbluegroups"],[data-feature="manager-hub-bluegroups"],[data-feature="ibmer-hub-bluegroups"],[data-feature="squads"],[data-feature="w3id_pilot.bluegroup"],[data-feature="w3id_rr.email-rolling-release"],[data-feature="w3id_pilot_ls.local_storage_exists"],[data-feature="!events.takeover"],[data-feature="environments.dev"],[data-feature="environments.stage"],[data-feature="!environments.live"],[data-feature="environments.environments.dev.environment"],[data-feature="environments.environments.stage.environment"],[data-feature="environments.environments.live.environment"],[data-feature="metrics.search"],[data-feature="!metrics.experience_switching"],[data-feature="metrics.metrics.search.results"],[data-feature="!abilities.core_metrics"],[data-feature="search.watson-search-pilot"],[data-feature="!search.acronym"],[data-feature="search.command-channels"],[data-feature="search.development"],[data-feature="search.direct-search-options"],[data-feature="!search.places"],[data-feature="!search.faces"],[data-feature="search.for-japan"],[data-feature="search.hr-links"],[data-feature="search.manager-links"],[data-feature="!search.megamenu"],[data-feature="!search.secrets"],[data-feature="search.suggested-matches-local"],[data-feature="!search.suggested-matches-ww"],[data-feature="search.swg"],[data-feature="search.search.watson-search-pilot.bluegroup"],[data-feature="search.search.command-channels.bluepages"],[data-feature="search.search.command-channels.search.command-channels.bluepages.instant_results"],[data-feature="search.search.development.odw_job_role"],[data-feature="search.search.direct-search-options.environment"],[data-feature="search.search.for-japan.odw_location_country"],[data-feature="search.search.hr-links.authenticated"],[data-feature="search.search.manager-links.manager"],[data-feature="search.search.suggested-matches-local.authenticated"],[data-feature="search.search.swg.odw_organization"],[data-feature="!banner.profiled_banner"],[data-feature="!banner.static_banner"],[data-feature="!experiences.home"],[data-feature="experiences.ibmer-hub"],[data-feature="!experiences.ibmer-hub-identified"],[data-feature="experiences.manager-hub"],[data-feature="experiences.manager-hub-identified"],[data-feature="experiences.ibmer-hub-protean"],[data-feature="experiences.manager-hub-protean"],[data-feature="experiences.experiences.ibmer-hub._"],[data-feature="experiences.experiences.ibmer-hub.megamenu"],[data-feature="experiences.experiences.ibmer-hub.megamenu_static_data"],[data-feature="experiences.experiences.ibmer-hub.experiences.ibmer-hub._.employment_group"],[data-feature="experiences.experiences.ibmer-hub-identified._"],[data-feature="experiences.experiences.ibmer-hub-identified.experiences.ibmer-hub-identified._.identified_employee"],[data-feature="experiences.experiences.manager-hub.empType"],[data-feature="experiences.experiences.manager-hub._"],[data-feature="experiences.experiences.manager-hub.megamenu"],[data-feature="experiences.experiences.manager-hub.left-nav-badge"],[data-feature="experiences.experiences.manager-hub.experiences.manager-hub.empType.managerEmployeeType"],[data-feature="experiences.experiences.manager-hub.experiences.manager-hub._.manager"],[data-feature="experiences.experiences.manager-hub-identified._"],[data-feature="experiences.experiences.manager-hub-identified.experiences.manager-hub-identified._.identified_manager"],[data-feature="experiences.experiences.ibmer-hub-protean.email"],[data-feature="experiences.experiences.manager-hub-protean.email"],[data-feature="!cogs.about"],[data-feature="!cogs.awards"],[data-feature="!cogs.box"],[data-feature="!cogs.bluepages"],[data-feature="!cogs.cms"],[data-feature="cogs.community"],[data-feature="!cogs.compensation"],[data-feature="!cogs.corporate-strategy"],[data-feature="!cogs.files"],[data-feature="!cogs.headlines"],[data-feature="!cogs.ibmer-news"],[data-feature="!cogs.learning"],[data-feature="cogs.lifecycle-trigger"],[data-feature="cogs.lifecycle-viewer"],[data-feature="cogs.localmetrics"],[data-feature="cogs.masthead-dropdown"],[data-feature="!cogs.media"],[data-feature="!cogs.mgr-news"],[data-feature="!cogs.mgr-team"],[data-feature="cogs.minipulse"],[data-feature="!cogs.places"],[data-feature="!cogs.profile-info"],[data-feature="!cogs.sitelinks"],[data-feature="cogs.status-updates"],[data-feature="!cogs.stock"],[data-feature="!cogs.talentplaybook"],[data-feature="!cogs.task-calendar"],[data-feature="cogs.task-calendar-responsive"],[data-feature="!cogs.team"],[data-feature="cogs.team-members"],[data-feature="!cogs.team-profiles"],[data-feature="!cogs.think-academy"],[data-feature="!cogs.time-in-out"],[data-feature="!cogs.watson-takeover"],[data-feature="!cogs.whatsnew"],[data-feature="cogs.cogs.about._"],[data-feature="cogs.cogs.about.medium"],[data-feature="cogs.cogs.awards._"],[data-feature="cogs.cogs.awards.mini"],[data-feature="cogs.cogs.awards.medium"],[data-feature="cogs.cogs.awards.large"],[data-feature="cogs.cogs.box._"],[data-feature="cogs.cogs.box.mini"],[data-feature="cogs.cogs.box.medium"],[data-feature="cogs.cogs.box.large"],[data-feature="cogs.cogs.box.pilot"],[data-feature="cogs.cogs.box.cogs.box.pilot.email"],[data-feature="cogs.cogs.bluepages._"],[data-feature="cogs.cogs.bluepages.mini"],[data-feature="cogs.cogs.bluepages.medium"],[data-feature="cogs.cogs.bluepages.large"],[data-feature="cogs.cogs.bluepages.copy"],[data-feature="cogs.cogs.cms._"],[data-feature="cogs.cogs.cms.mini"],[data-feature="cogs.cogs.cms.medium"],[data-feature="cogs.cogs.cms.large"],[data-feature="cogs.cogs.community._"],[data-feature="cogs.cogs.community.mini"],[data-feature="cogs.cogs.community.medium"],[data-feature="cogs.cogs.community.large"],[data-feature="cogs.cogs.community.cogs.community._.authenticated"],[data-feature="cogs.cogs.compensation._"],[data-feature="cogs.cogs.compensation.mini"],[data-feature="cogs.cogs.compensation.medium"],[data-feature="cogs.cogs.compensation.large"],[data-feature="cogs.cogs.compensation.blackout"],[data-feature="cogs.cogs.compensation.cogs.compensation.blackout.date"],[data-feature="cogs.cogs.compensation.cogs.compensation.blackout.cogs.compensation.blackout.date.after"],[data-feature="cogs.cogs.compensation.cogs.compensation.blackout.cogs.compensation.blackout.date.before"],[data-feature="cogs.cogs.corporate-strategy._"],[data-feature="cogs.cogs.corporate-strategy.mini"],[data-feature="cogs.cogs.corporate-strategy.medium"],[data-feature="cogs.cogs.corporate-strategy.large"],[data-feature="cogs.cogs.files._"],[data-feature="cogs.cogs.files.mini"],[data-feature="cogs.cogs.files.medium"],[data-feature="cogs.cogs.files.large"],[data-feature="cogs.cogs.headlines._"],[data-feature="cogs.cogs.headlines.mini"],[data-feature="cogs.cogs.headlines.medium"],[data-feature="cogs.cogs.headlines.large"],[data-feature="cogs.cogs.ibmer-news._"],[data-feature="cogs.cogs.ibmer-news.mini"],[data-feature="cogs.cogs.ibmer-news.medium"],[data-feature="cogs.cogs.ibmer-news.large"],[data-feature="cogs.cogs.learning._"],[data-feature="cogs.cogs.learning.mini"],[data-feature="cogs.cogs.learning.medium"],[data-feature="cogs.cogs.learning.large"],[data-feature="cogs.cogs.lifecycle-trigger._"],[data-feature="cogs.cogs.lifecycle-trigger.cogs.lifecycle-trigger._.email"],[data-feature="cogs.cogs.lifecycle-viewer._"],[data-feature="cogs.cogs.lifecycle-viewer.cogs.lifecycle-viewer._.email"],[data-feature="cogs.cogs.localmetrics._"],[data-feature="cogs.cogs.masthead-dropdown._"],[data-feature="cogs.cogs.masthead-dropdown.masthead_tray"],[data-feature="cogs.cogs.masthead-dropdown.cogs.masthead-dropdown.masthead_tray.date"],[data-feature="cogs.cogs.masthead-dropdown.cogs.masthead-dropdown.masthead_tray.cogs.masthead-dropdown.masthead_tray.date.after"],[data-feature="cogs.cogs.masthead-dropdown.cogs.masthead-dropdown.masthead_tray.cogs.masthead-dropdown.masthead_tray.date.before"],[data-feature="cogs.cogs.media._"],[data-feature="cogs.cogs.media.mini"],[data-feature="cogs.cogs.media.medium"],[data-feature="cogs.cogs.media.large"],[data-feature="cogs.cogs.mgr-news._"],[data-feature="cogs.cogs.mgr-news.mini"],[data-feature="cogs.cogs.mgr-news.medium"],[data-feature="cogs.cogs.mgr-news.large"],[data-feature="cogs.cogs.mgr-team._"],[data-feature="cogs.cogs.mgr-team.mini"],[data-feature="cogs.cogs.mgr-team.medium"],[data-feature="cogs.cogs.mgr-team.large"],[data-feature="cogs.cogs.minipulse._"],[data-feature="cogs.cogs.minipulse.mini"],[data-feature="cogs.cogs.minipulse.medium"],[data-feature="cogs.cogs.minipulse.large"],[data-feature="cogs.cogs.minipulse.poll"],[data-feature="cogs.cogs.minipulse.action"],[data-feature="cogs.cogs.minipulse.cogs.minipulse.poll.like"],[data-feature="cogs.cogs.minipulse.cogs.minipulse.action.share"],[data-feature="cogs.cogs.places._"],[data-feature="cogs.cogs.places.mini"],[data-feature="cogs.cogs.places.medium"],[data-feature="cogs.cogs.places.large"],[data-feature="cogs.cogs.places.user-config"],[data-feature="cogs.cogs.places.personal-link"],[data-feature="cogs.cogs.places.coach-marks"],[data-feature="cogs.cogs.places.dev"],[data-feature="cogs.cogs.places.folder"],[data-feature="cogs.cogs.profile-info._"],[data-feature="cogs.cogs.profile-info.mini"],[data-feature="cogs.cogs.profile-info.medium"],[data-feature="cogs.cogs.profile-info.large"],[data-feature="cogs.cogs.sitelinks._"],[data-feature="cogs.cogs.sitelinks.masthead_tray"],[data-feature="cogs.cogs.status-updates._"],[data-feature="cogs.cogs.status-updates.mini"],[data-feature="cogs.cogs.status-updates.medium"],[data-feature="cogs.cogs.status-updates.large"],[data-feature="cogs.cogs.status-updates.post"],[data-feature="cogs.cogs.status-updates.cogs.status-updates._.authenticated"],[data-feature="cogs.cogs.stock._"],[data-feature="cogs.cogs.stock.mini"],[data-feature="cogs.cogs.stock.medium"],[data-feature="cogs.cogs.stock.large"],[data-feature="cogs.cogs.talentplaybook._"],[data-feature="cogs.cogs.talentplaybook.mini"],[data-feature="cogs.cogs.talentplaybook.medium"],[data-feature="cogs.cogs.talentplaybook.large"],[data-feature="cogs.cogs.talentplaybook.reset-alert-cache"],[data-feature="cogs.cogs.talentplaybook.dashboard"],[data-feature="cogs.cogs.talentplaybook.relatedlinks"],[data-feature="cogs.cogs.talentplaybook.example-definition"],[data-feature="cogs.cogs.talentplaybook.read-unread"],[data-feature="cogs.cogs.talentplaybook.tasks"],[data-feature="cogs.cogs.talentplaybook.alerts"],[data-feature="cogs.cogs.talentplaybook.introhelp"],[data-feature="cogs.cogs.talentplaybook.errors"],[data-feature="cogs.cogs.talentplaybook.earlycall"],[data-feature="cogs.cogs.talentplaybook.supplementalUsed"],[data-feature="cogs.cogs.talentplaybook.csv-download"],[data-feature="cogs.cogs.talentplaybook.csv-remove-html"],[data-feature="cogs.cogs.talentplaybook.csv-download-on-error"],[data-feature="cogs.cogs.talentplaybook.csv-new-download"],[data-feature="cogs.cogs.talentplaybook.rest-tasks"],[data-feature="cogs.cogs.talentplaybook.clean-tasks"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.new"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.yourteam"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.performance"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.expertise"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.compensation"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.leadership"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.global"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.diversity"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.bcg"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.dates"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.emergency"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.security"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.benefits"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.jobs"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.travel"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.assets"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.expenses"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.time"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.awards"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.manager-drilldown"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.table-sort"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.focus-bar"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.checkpoint-columns"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.dashboard-sticky-header"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.first-line-tp-services"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.upline-tp-services"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.first-line-tp-services-new-version"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.new-alert-badge-medium"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.new-alert-badge-large"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.read-unread-fix"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.yourteam._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.yourteam.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.yourteam.manager-drilldown"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.performance._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.performance.pa"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.performance.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.performance.teamAtAGlance"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.performance.manager-drilldown"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.expertise._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.expertise.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.expertise.tp-bluegroups"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.expertise.manager-drilldown"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.expertise.cogs.talentplaybook.dashboard.expertise.tp-bluegroups.bluegroup"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.compensation._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.compensation.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.compensation.manager-drilldown"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.leadership._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.leadership.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.leadership.manager-drilldown"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.global._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.global.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.diversity._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.diversity.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.bcg._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.bcg.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.bcg.manager-drilldown"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.dates._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.dates.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.dates.manager-drilldown"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.emergency._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.emergency.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.emergency.manager-drilldown"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.security._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.security.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.benefits._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.benefits.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.jobs._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.jobs.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.travel._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.travel.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.assets._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.assets.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.expenses._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.expenses.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.expenses.downloadReports"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.time._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.time.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.awards._"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.awards.download"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.first-line-tp-services.bluegroup"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.upline-tp-services.bluegroup"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.dashboard.cogs.talentplaybook.dashboard.first-line-tp-services-new-version.bluegroup"],[data-feature="cogs.cogs.talentplaybook.cogs.talentplaybook.read-unread.bluegroup"],[data-feature="cogs.cogs.task-calendar._"],[data-feature="cogs.cogs.task-calendar.mini"],[data-feature="cogs.cogs.task-calendar.medium"],[data-feature="cogs.cogs.task-calendar.large"],[data-feature="cogs.cogs.task-calendar-responsive._"],[data-feature="cogs.cogs.task-calendar-responsive.mini"],[data-feature="cogs.cogs.task-calendar-responsive.medium"],[data-feature="cogs.cogs.task-calendar-responsive.large"],[data-feature="cogs.cogs.team._"],[data-feature="cogs.cogs.team.mini"],[data-feature="cogs.cogs.team.medium"],[data-feature="cogs.cogs.team.large"],[data-feature="cogs.cogs.team-members._"],[data-feature="cogs.cogs.team-members.mini"],[data-feature="cogs.cogs.team-members.medium"],[data-feature="cogs.cogs.team-members.large"],[data-feature="cogs.cogs.team-profiles._"],[data-feature="cogs.cogs.team-profiles.mini"],[data-feature="cogs.cogs.team-profiles.medium"],[data-feature="cogs.cogs.team-profiles.medium-filter"],[data-feature="cogs.cogs.team-profiles.large"],[data-feature="cogs.cogs.team-profiles.reset-alert-cache"],[data-feature="cogs.cogs.team-profiles.dashboard"],[data-feature="cogs.cogs.team-profiles.cogs.team-profiles.dashboard.personalinfo"],[data-feature="cogs.cogs.team-profiles.cogs.team-profiles.dashboard.expertise"],[data-feature="cogs.cogs.team-profiles.cogs.team-profiles.dashboard.performance"],[data-feature="cogs.cogs.team-profiles.cogs.team-profiles.dashboard.awards"],[data-feature="cogs.cogs.team-profiles.cogs.team-profiles.dashboard.bcg"],[data-feature="cogs.cogs.team-profiles.cogs.team-profiles.dashboard.compensation"],[data-feature="cogs.cogs.team-profiles.cogs.team-profiles.dashboard.dates"],[data-feature="cogs.cogs.team-profiles.cogs.team-profiles.dashboard.emergency"],[data-feature="cogs.cogs.team-profiles.cogs.team-profiles.dashboard.leadership"],[data-feature="cogs.cogs.team-profiles.cogs.team-profiles.dashboard.checkpoint-columns"],[data-feature="cogs.cogs.think-academy._"],[data-feature="cogs.cogs.think-academy.mini"],[data-feature="cogs.cogs.think-academy.medium"],[data-feature="cogs.cogs.think-academy.large"],[data-feature="cogs.cogs.time-in-out._"],[data-feature="cogs.cogs.time-in-out.mini"],[data-feature="cogs.cogs.time-in-out.medium"],[data-feature="cogs.cogs.time-in-out.large"],[data-feature="cogs.cogs.watson-takeover._"],[data-feature="cogs.cogs.watson-takeover.masthead_tray"],[data-feature="cogs.cogs.watson-takeover.day-1"],[data-feature="cogs.cogs.watson-takeover.day-2"],[data-feature="cogs.cogs.watson-takeover.day-3"],[data-feature="cogs.cogs.watson-takeover.cogs.watson-takeover.masthead_tray.date"],[data-feature="cogs.cogs.watson-takeover.cogs.watson-takeover.masthead_tray.cogs.watson-takeover.masthead_tray.date.after"],[data-feature="cogs.cogs.watson-takeover.cogs.watson-takeover.masthead_tray.cogs.watson-takeover.masthead_tray.date.before"],[data-feature="cogs.cogs.watson-takeover.cogs.watson-takeover.day-1.date"],[data-feature="cogs.cogs.watson-takeover.cogs.watson-takeover.day-1.cogs.watson-takeover.day-1.date.after"],[data-feature="cogs.cogs.watson-takeover.cogs.watson-takeover.day-1.cogs.watson-takeover.day-1.date.before"],[data-feature="cogs.cogs.watson-takeover.cogs.watson-takeover.day-2.date"],[data-feature="cogs.cogs.watson-takeover.cogs.watson-takeover.day-2.cogs.watson-takeover.day-2.date.after"],[data-feature="cogs.cogs.watson-takeover.cogs.watson-takeover.day-2.cogs.watson-takeover.day-2.date.before"],[data-feature="cogs.cogs.watson-takeover.cogs.watson-takeover.day-3.date"],[data-feature="cogs.cogs.watson-takeover.cogs.watson-takeover.day-3.cogs.watson-takeover.day-3.date.after"],[data-feature="cogs.cogs.watson-takeover.cogs.watson-takeover.day-3.cogs.watson-takeover.day-3.date.before"],[data-feature="cogs.cogs.whatsnew._"],[data-feature="cogs.cogs.whatsnew.mini"],[data-feature="cogs.cogs.whatsnew.medium"],[data-feature="cogs.cogs.whatsnew.large"],[data-feature="TPbluegroups._"],[data-feature="TPbluegroups.TPbluegroups._.bluegroup"],[data-feature="manager-hub-bluegroups._"],[data-feature="manager-hub-bluegroups.manager-hub-bluegroups._.bluegroup"],[data-feature="ibmer-hub-bluegroups._"],[data-feature="ibmer-hub-bluegroups.ibmer-hub-bluegroups._.bluegroup"],[data-feature="squads._"],[data-feature="squads.hubs"],[data-feature="squads.alpha"],[data-feature="squads.bravo"],[data-feature="squads.delta"],[data-feature="squads.echo"],[data-feature="squads.squads._.email"],[data-feature="squads.squads.hubs.email"],[data-feature="squads.squads.alpha.email"],[data-feature="squads.squads.bravo.email"],[data-feature="squads.squads.delta.email"],[data-feature="squads.squads.echo.email"] { display:none!important; }</style><style type="text/css" data-purpose="layout : fluid-dual-grid">#layout .columns {
+	padding: 20px 10px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-direction: normal;
+	-webkit-box-orient: vertical;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	-moz-box-flex: 1;
+	-moz-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+}
+
+#awf-experience-header {
+	padding-top: 10px;
+	margin: 0 0 10px;
+}
+
+#awf-experience-header:empty,
+#awf-experience-message:empty {
+	display: none;
+}
+
+#grid,
+#mini-grid {
+	position: relative;
+}
+
+#grid > .awf-loader,
+#mini-grid > .awf-loader {
+	position: absolute;
+}
+
+#grid {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	-moz-box-flex: 1;
+	-moz-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+}
+
+#mini-grid {
+	padding-top: 10px;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	-moz-box-flex: 1;
+	-moz-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+}
+
+
+
+
+
+@media (min-width: 420px) {
+	#layout .columns {
+		padding: 20px;
+	}
+}
+
+
+
+
+
+@media (min-width: 420px) and (max-width: 1019px) {
+	#leftnav {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 80px;
+		-moz-box-flex: 0;
+		-moz-flex: 0 0 80px;
+		-ms-flex: 0 0 80px;
+		flex: 0 0 80px;
+	}
+	.vertical-nav__item__label {
+		display: none;
+	}
+	.vertical-nav__item__icon {
+		margin-left: 18px;
+	}
+}
+
+
+
+
+
+@media (min-width: 580px) {
+	#mini-grid {
+		padding-top: 0;
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 120px;
+		-moz-box-flex: 0;
+		-moz-flex: 0 0 120px;
+		-ms-flex: 0 0 120px;
+		flex: 0 0 120px;
+		margin-left: 20px;
+	}
+
+	#layout .columns {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: horizontal;
+		-webkit-flex-direction: row;
+		-moz-flex-direction: row;
+		-ms-flex-direction: row;
+		flex-direction: row;
+	}
+}
+</style><style type="text/css">#grid-ybJun-66 { min-width: 300px; max-width: 1240px; }
+#grid-ybJun-66 > .grid__inner-wrapper { margin: 0 -10px; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item { border: solid 10px transparent; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--r-1 { height: 380px; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--r-2 { height: 760px; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--r-3 { height: 1140px; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--r-4 { height: 1520px; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--y-0 { top: 0px; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--y-1 { top: 380px; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--y-2 { top: 760px; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--y-3 { top: 1140px; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--y-4 { top: 1520px; }
+
+/* column 3 specifics */
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--c-1 { width: 33.333333333333336%; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--c-2 { width: 66.66666666666667%; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--c-3 { width: 100%; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--x-0 { left: 0%; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--x-1 { left: 33.333333333333336%; }
+#grid-ybJun-66 > .grid__inner-wrapper > .grid__item--x-2 { left: 66.66666666666667%; }
+</style><style type="text/css">#grid-xvmwa-69 { min-width: 120px; max-width: 150px; }
+#grid-xvmwa-69 > .grid__inner-wrapper { margin: 0 -10px; }
+#grid-xvmwa-69 > .grid__inner-wrapper > .grid__item { border: solid 10px transparent; }
+#grid-xvmwa-69 > .grid__inner-wrapper > .grid__item--r-1 { height: 100px; }
+#grid-xvmwa-69 > .grid__inner-wrapper > .grid__item--r-2 { height: 200px; }
+#grid-xvmwa-69 > .grid__inner-wrapper > .grid__item--r-3 { height: 300px; }
+#grid-xvmwa-69 > .grid__inner-wrapper > .grid__item--y-0 { top: 0px; }
+#grid-xvmwa-69 > .grid__inner-wrapper > .grid__item--y-1 { top: 100px; }
+#grid-xvmwa-69 > .grid__inner-wrapper > .grid__item--y-2 { top: 200px; }
+#grid-xvmwa-69 > .grid__inner-wrapper > .grid__item--y-3 { top: 300px; }
+
+/* column 1 specifics */
+#grid-xvmwa-69 > .grid__inner-wrapper > .grid__item--c-1 { width: 100%; }
+#grid-xvmwa-69 > .grid__inner-wrapper > .grid__item--c-2 { width: 200%; }
+#grid-xvmwa-69 > .grid__inner-wrapper > .grid__item--c-3 { width: 300%; }
+#grid-xvmwa-69 > .grid__inner-wrapper > .grid__item--x-0 { left: 0%; }
+</style><script src="./yourIBM_files/cp-v3.js" type="text/javascript"></script></head>
+	<body><div id="lightningjs-usabilla_live" style="display: none;"><div><iframe frameborder="0" id="lightningjs-frame-usabilla_live"></iframe></div></div>
+		<script>
+			document.write("<script type='text/javascript' src='"+ cache_buster.hver +"js/w3n.min.js'><\/script>");
+		</script><script type="text/javascript" src="./yourIBM_files/w3n.min.js"></script>
+		<!-- begin usabilla live embed code -->
+		<script type="text/javascript">
+			/*{literal}<![CDATA[*/
+			window.lightningjs || function (c) {
+				function g(b, d) {
+					d && (d += (/\?/.test(d) ? "&" : "?") + "lv=1");
+					c[b] || function () {
+						var i = window,
+							h = document,
+							j = b,
+							g = h.location.protocol,
+							l = "load",
+							k = 0;
+						(function () {
+							function b() {
+								a.P(l);
+								a.w = 1;
+								c[j]("_load")
+							}
+							c[j] = function () {
+								function m() {
+									m.id = e;
+									return c[j].apply(m, arguments)
+								}
+								var b, e = ++k;
+								b = this && this != i ? this.id || 0 : 0;
+								(a.s = a.s || []).push([e, b, arguments]);
+								m.then = function (b, c, h) {
+									var d = a.fh[e] = a.fh[e] || [],
+										j = a.eh[e] = a.eh[e] || [],
+										f = a.ph[e] = a.ph[e] || [];
+									b && d.push(b);
+									c && j.push(c);
+									h && f.push(h);
+									return m
+								};
+								return m
+							};
+							var a = c[j]._ = {};
+							a.fh = {};
+							a.eh = {};
+							a.ph = {};
+							a.l = d ? d.replace(/^\/\//, (g == "https:" ? g : "http:") + "//") : d;
+							a.p = {
+								0: +new Date
+							};
+							a.P = function (b) {
+								a.p[b] = new Date - a.p[0]
+							};
+							a.w && b();
+							i.addEventListener ? i.addEventListener(l, b, !1) : i.attachEvent("on" + l, b);
+							var q = function () {
+								function b() {
+									return ["<head></head><", c, ' onload="var d=', n, ";d.getElementsByTagName('head')[0].", d, "(d.", g, "('script')).", i, "='", a.l, "'\"></", c, ">"].join("")
+								}
+								var c = "body",
+									e = h[c];
+								if (!e) return setTimeout(q, 100);
+								a.P(1);
+								var d = "appendChild",
+									g = "createElement",
+									i = "src",
+									k = h[g]("div"),
+									l = k[d](h[g]("div")),
+									f = h[g]("iframe"),
+									n = "document",
+									p;
+								k.style.display = "none";
+								e.insertBefore(k, e.firstChild).id = o + "-" + j;
+								f.frameBorder = "0";
+								f.id = o + "-frame-" + j;
+								/MSIE[ ]+6/.test(navigator.userAgent) && (f[i] = "javascript:false");
+								f.allowTransparency = "true";
+								l[d](f);
+								try {
+									f.contentWindow[n].open()
+								} catch (s) {
+									a.domain = h.domain, p = "javascript:var d=" + n + ".open();d.domain='" + h.domain + "';", f[i] = p + "void(0);"
+								}
+								try {
+									var r = f.contentWindow[n];
+									r.write(b());
+									r.close()
+								} catch (t) {
+									f[i] = p + 'd.write("' + b().replace(/"/g, String.fromCharCode(92) + '"') + '");d.close();'
+								}
+								a.P(2)
+							};
+							a.l && setTimeout(q, 0)
+						})()
+					}();
+					c[b].lv = "1";
+					return c[b]
+				}
+				var o = "lightningjs",
+					k = window[o] = g(o);
+				k.require = g;
+				k.modules = c
+			}({});
+			if(lang.toLowerCase() == "fr-ca"){
+				window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/819a8152bef2.js");
+			} else {
+				window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/342c3d56de9d.js");
+			}
+			/*]]>{/literal}*/
+		</script>
+		<!-- end usabilla live embed code —>
+	</body>
+</html>--><div class="awf-page js-page -has-masthead" role="region" aria-labelledby="page-title" style="background-position: 50% 50%;">
+	<header role="banner" class="masthead masthead--fixed group -background-base -box-shadow-base" data-feature="page.masthead">
+	<button class="btn-control js-nav-toggle nav-toggle -awf-link -text-decoration-none -awf-focus" aria-controls="leftnav" aria-expanded="false" role="button">
+	<span class="js-btn-text btn-control__text awf-access">Open/Close Experience Menu</span>
+	<em class="js-btn-icon btn-control__icon icon-awf-menu-bars"></em>
+</button>
+
+	<div class="js-brand-logo masthead__logo"><div class="-is-w3"><em class="icon-awf-w3-logo-w3"><span class="awf-access">w3</span></em></div></div>
+	<div class="js-brand-name masthead__name">yourIBM</div>
+
+	<div class="js-search-container masthead__search" data-feature="masthead.search"><button class="awf-access" aria-hidden="true" tabindex="-1">Refocus to last</button><form class="awf-search" action="javascript:;" role="search" aria-label="Rapid Search Form">
+	<div class="awf-search__wrap">
+		<label for="awf-search-input" class="js-access-label awf-access" data-i18n="awf.page.masthead.search.label">Search</label>
+		<input type="search" id="awf-search-input" class="js-search-input awf-search__input -awf-focus -border-color-link" autocomplete="off" data-i18n="[placeholder]awf.page.masthead.search.label" placeholder="Search">
+		<button type="reset" class="js-search-clear awf-search__clear icon-awf-op-times-bold -color-alt" tabindex="-1"><span class="awf-access" data-i18n="awf.common.clear">Clear</span></button>
+		<button type="submit" class="js-search-submit awf-search__submit icon-awf-search -awf-link -text-decoration-none" data-i18n="[title]awf.page.masthead.search.label;[alt]awf.page.masthead.search.label" alt="Search" title="Search"><span class="awf-access" data-i18n="awf.page.masthead.search.label">Search</span></button>
+		<div class="js-search-focus-container awf-search__focus-container -border-color-base -background-base" data-i18n="app.search.focus_text">Results for top w3 pages and Bluepages will appear here as you type.</div>
+	</div>
+</form><button class="btn-control js-search-mobile-toggle awf-search__mobile-toggle -awf-link -text-decoration-none">
+	<span class="js-btn-text btn-control__text awf-access">Open Search</span>
+	<em class="js-btn-icon btn-control__icon icon-awf-search"></em>
+</button><div class="awf-results -border-color-base -background-base" role="region" aria-label="Search Results" id="nCfjW-27">
+	<div class="js-results-wrap awf-results__wrap"></div>
+	<div class="js-results-footer awf-results__footer -awf-focus -border-color-base" data-i18n="awf.page.masthead.search.results_footer">Press Enter to see all search results.</div>
+</div><button class="awf-access" aria-hidden="true" tabindex="-1">Refocus to first</button><div class="awf-search-glass" aria-hidden="true" role="presentation"></div></div>
+	<div class="js-trays-container masthead__trays" data-feature="masthead.trays"><div class="masthead-trays">
+	<div class="js-masthead-trays-buttons masthead-trays__buttons"><div class="masthead-trays__button-collection"><button class="btn-control -awf-link -text-decoration-none" title="Settings" data-cog="settings">
+	<span class="js-btn-text btn-control__text awf-access">Settings</span>
+	<em class="js-btn-icon btn-control__icon icon-awf-gear"></em>
+</button><button class="btn-control -awf-link -text-decoration-none" title="Sitelinks" data-cog="sitelinks">
+	<span class="js-btn-text btn-control__text awf-access">Sitelinks</span>
+	<em class="js-btn-icon btn-control__icon icon-awf-grid-3x3"></em>
+</button></div></div>
+	<div id="masthead-trays-dropdown" class="js-masthead-trays-dropdown masthead-trays__dropdown -background-base" role="region" aria-label="Masthead Trays" data-i18n="[aria-label]awf.page.masthead.trays.label">
+		<button class="awf-access js-masthead-trays-loop-to-last" aria-hidden="true">Loop to last</button>
+
+		<button class="js-masthead-trays-dropdown-close masthead-trays__dropdown__close icon-awf-op-times -awf-focus">
+			<span class="awf-access" data-i18n="awf.common.close">Close</span>
+		</button>
+		<div class="js-masthead-trays-dropdown-content masthead-trays__dropdown__content"><div><div data-cog="settings" class="-hidden"></div><div data-cog="sitelinks" class="-hidden"></div></div></div>
+
+		<button class="awf-access js-masthead-trays-loop-to-first" aria-hidden="true">Loop to first</button>
+	</div>
+</div></div>
+	<div class="js-user-container masthead__user -border-color-base" data-feature="masthead.user"><div class="masthead-user">
+	<button class="js-signin masthead-user__signin -awf-link-inverted">
+		<span class="-not-mobile" data-i18n="awf.page.masthead.user.anonymous.greeting">Welcome,</span> 
+		<strong data-i18n="awf.common.sign_in_proper">Sign In</strong>
+	</button>
+	<div class="js-authenticated-dropdown masthead-user__dropdown"><div class="awf-dropdown">
+	<button class="awf-access js-loop-to-last awf-dropdown__loop-last" aria-hidden="true">Loop to last</button>
+	<label class="js-dropdown-label awf-access" id="UEYjX-19">User Tooltip</label>
+	<button class="js-dropdown-button awf-dropdown__button -awf-link" aria-expanded="false" role="button" id="expDC-17"></button>
+	<div class="js-dropdown-wrapper awf-dropdown__wrapper awf-dropdown__wrapper--right" role="region" id="zBVcn-18" aria-labelledby="UEYjX-19" style="width: 260px;">
+		<div class="js-dropdown-content awf-dropdown__wrapper__content -background-base" style="transform: translate(-5px, -6px);"><div>
+	<div class="js-avatar awf-dropdown__avatar"></div>
+
+	<div class="js-name awf-dropdown__name -color-link"></div>
+
+	<div class="awf-dropdown__email">
+		<a class="js-email awf-dropdown__email -awf-link-inverted"></a>
+	</div>
+
+	<div class="js-msg awf-dropdown__msg">
+		<a data-action="switch-person" data-primitive="switch-person" class="switch-person -color-base" target="_blank" href="https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/W01e156d541f3_464c_9351_567db3d90204/page/%27Sign%20out%27%20and%20w3">
+			<em class="icon-awf-avatar-circle -color-link"></em>
+			<span data-i18n="awf.page.masthead.user.authenticated.switch_person">
+				<p>Restart your browser to Switch ID.</p>
+				<p>Learn more <span class="-color-link">here</span>.</p>
+			</span>
+		</a>
+	</div>
+</div>
+</div>
+	</div>
+	<div class="tip-wrapper" style="transform: translate(0px, -6px);"><div class="tip -background-base"></div></div>
+	<button class="awf-access js-loop-to-first awf-dropdown__loop-first" aria-hidden="true">Loop to first</button>
+</div></div>
+</div></div>
+</header>
+	<div id="notifications-banner" class="js-notifications-banner-container notifications-banner-container" data-feature="page.notifications-banner" aria-label="Notifications Banner" data-i18n="[aria-label]awf.page.notifications.label"><div class="js-notifications notifications" aria-hidden="true" style="display:none;">
+	<span class="js-notifications-icon notifications__icon icon-awf-bullhorn-circle"></span>
+	<div class="notifications__wrap">
+		<div class="notifications__wrap__text">
+			<span class="js-notifications-title notifications__wrap__text__title" role="heading"></span>
+			<span class="js-notifications-description notifications__wrap__text__description"></span>
+		</div>
+	</div>
+	<div class="notifications__dismiss">
+		<button class="js-notifications-dismiss notifications__dismiss__button icon-awf-op-times" title="dismiss" aria-controls="notifications-banner" aria-expanded="false" role="button" data-i18n="[title]awf.common.dismiss"><span class="awf-access" data-i18n="awf.common.dismiss">dismiss</span></button>
+	</div>
+</div></div>
+	<div id="awf-app-message" class="js-app-message awf-app-message" role="alert" data-feature="page.app-message" aria-label="Application Message" data-i18n="[aria-label]awf.app.messages_aria"></div>
+	<div id="content" class="awf-experience" role="main" data-feature="page.experience" aria-label="All content" data-i18n="[aria-label]awf.page.content.label">
+		<div class="darkener js-darkener"></div>
+		<h1 id="page-title" class="js-awf-page-heading awf-access" aria-label="Page Title" data-feature="page.title" data-i18n="[aria-label]awf.page.content.page_label">yourIBM</h1>
+		<div class="awf-experience__inner">
+			<div class="vertical-nav overflow-close" role="toolbar" aria-label="Experience Options" aria-controls="layout" id="leftnav">
+	<div class="js-dropzone"><button class="vertical-nav__item -awf-focus -is-active" role="button" title="Home" tabindex="0" aria-pressed="true">
+	<span class="vertical-nav__item__icon js-icon"><em class="icon-awf-home-circle-fill"></em></span>
+	<span class="vertical-nav__item__label js-label">Home</span>
+</button><button class="vertical-nav__item -awf-focus" role="button" title="IBMer Hub" tabindex="-1" aria-pressed="false" style="display: none;">
+	<span class="vertical-nav__item__icon js-icon"><em class="icon-youribm-logo-ibmerhub-circle"></em></span>
+	<span class="vertical-nav__item__label js-label">IBMer Hub</span>
+</button><button class="vertical-nav__item -awf-focus" role="button" title="IBMer Hub" tabindex="-1" aria-pressed="false">
+	<span class="vertical-nav__item__icon js-icon"><em class="icon-youribm-logo-ibmerhub-circle"></em></span>
+	<span class="vertical-nav__item__label js-label">IBMer Hub</span>
+</button><button class="vertical-nav__item -awf-focus" role="button" title="Manager Hub" tabindex="-1" aria-pressed="false" style="display: none;">
+	<span class="vertical-nav__item__icon js-icon"><em class="icon-youribm-logo-managerhub-circle"></em></span>
+	<span class="vertical-nav__item__label js-label">Manager Hub</span>
+</button><button class="vertical-nav__item -awf-focus" role="button" title="Manager Hub" tabindex="-1" aria-pressed="false" style="display: none;">
+	<span class="vertical-nav__item__icon js-icon"><em class="icon-youribm-logo-managerhub-circle"></em></span>
+	<span class="vertical-nav__item__label js-label">Manager Hub</span>
+</button><button class="vertical-nav__item -awf-focus" role="button" title="Admin" tabindex="-1" aria-pressed="false" style="display: none;">
+	<span class="vertical-nav__item__icon js-icon"><em class="icon-youribm-logo-adminhub-circle"></em></span>
+	<span class="vertical-nav__item__label js-label">Admin</span>
+</button><button class="vertical-nav__item -awf-focus" role="button" title="IBMer Hub Protean" tabindex="-1" aria-pressed="false" style="display: none;">
+	<span class="vertical-nav__item__icon js-icon"><em class="icon-youribm-logo-ibmerhub-circle"></em></span>
+	<span class="vertical-nav__item__label js-label">IBMer Hub Protean</span>
+</button><button class="vertical-nav__item -awf-focus" role="button" title="Manager Hub Protean" tabindex="-1" aria-pressed="false" style="display: none;">
+	<span class="vertical-nav__item__icon js-icon"><em class="icon-youribm-logo-managerhub-circle"></em></span>
+	<span class="vertical-nav__item__label js-label">Manager Hub Protean</span>
+</button></div>
+</div>
+			<div id="layout" class="js-layout-wrapper"><div>
+	<div id="awf-experience-message"></div>
+	<div id="awf-experience-topzone"></div>
+	<div class="columns">
+		<div id="grid">
+			<div id="awf-experience-header"></div>
+		<div class="grid -is-3-col grid--animated" id="grid-ybJun-66" style="height: 1130px;">
+	<div class="grid__inner-wrapper js-wrapper"><div class="grid__item grid__item--x-0 grid__item--y-0 grid__item--r-2 grid__item--c-1"><div class="awf-card-wrap -titled-card">
+	<div class="js-card awf-card -background-base -awf-focus" tabindex="0" role="region" aria-label="Headlines Card"><div class="js-card-titlebar awf-card__titlebar">
+	<h2 class="js-card-title awf-card__titlebar__title -color-alt js-drag-handle" aria-label="Click to Show Large Card" id="pHMTm-73" role="heading">Headlines</h2>
+	<div class="js-card-cta awf-card__titlebar__cta -color-alt"><button class="btn-control js-cta-flip awf-card__titlebar__cta__flip" tabindex="-1" aria-hidden="true" title="flip">
+	<span class="js-btn-text btn-control__text awf-access">flip</span>
+	<em class="js-btn-icon btn-control__icon icon-awf-external-link"></em>
+</button></div>
+	<span class="awf-card__titlebar__hr -border-color-base"></span>
+</div>
+<div class="js-card-message awf-card__message"></div>
+<div class="js-card-content awf-card__content" role="region" aria-labelledby="pHMTm-73"><div class="share-status">
+    <div class="share-status__input">
+        <label class="share-status__input__label caption" data-i18n="app.components.sharecomponent.add-comment" for="share_dialog_2">Add comment (Optional)</label>
+        <textarea class="share-status__input__textarea -awf-focus -border-color-link" aria-label="Share Dialog Textarea" id="share_dialog_2"></textarea>
+    </div>
+    <!--Quote info-->
+    <div class="share-status__quote">
+        <p class="share-status__quote__title title-3"><em class="icon-awf-quote-double-left"></em></p>
+        <p class="share-status__quote__desc"></p>
+    </div>
+    <!--Call to actions-->
+    <div class="share-status__cta">
+        <button class="tertiary-form-btn js-btn-share-cancel" data-i18n="awf.common.cancel">Cancel</button>
+        <button type="submit" class="primary-form-btn js-btn-share-submit" data-i18n="awf.common.share">share</button>
+    </div>
+</div><div class="share-dialog-overlay hide-overlap"></div><div class="card headlines-medium" role="region" data-i18n="[aria-label]app.cogs.headlines.aria-label.medium-view" aria-label="headline medium card">
+    <div class="content">
+        <div class="feed-wrapper">
+            <div class="feed-wrapper__list">
+				<!--Headlines Feed items-->
+				<article role="article" class="feed-wrapper__list__item" aria-label="Best of IBM 2017"><img src="./yourIBM_files/IBM_BOI_Rosette_Tiles_45x45.jpg" class="left" width="60" height="60" alt="Best of IBM">
+<div class="feed-wrapper__list__item__content">
+	<h4 class="title-4"><a href="http://w3-workplace.ibm.com/news/w3news/top_stories/2017/03/chq-best-of-ibm-honorees-2017.html" target="_blank">Best of IBM 2017</a></h4>
+	<p class="caption-1">Profiled for all IBM</p>
+	<p class="desc">Celebrating IBMers who make IBM essential.</p>
+<ul role="list" aria-label="social buttons" class="social-actions"><li class="social-action-option" role="listitem"><a role="button" href="javascript:;" title="Share by email" class="icon-awf-email " data-i18n="[title]app.common.social-actions.share-by-email">
+    <span class="access" data-i18n="app.common.social-actions.share-by-email">Share by email</span>
+</a>
+<span></span></li></ul></div></article><article role="article" class="feed-wrapper__list__item" aria-label="Women&#39;s History Month 2017"><img src="./yourIBM_files/hgsq2.png" class="left" width="60" height="60" alt="Harriet Green headsho">
+<div class="feed-wrapper__list__item__content">
+	<h4 class="title-4"><a href="http://ibm.biz/hgwhm2017" target="_blank">Women's History Month 2017</a></h4>
+	<p class="caption-1"></p>
+	<p class="desc">Harriet Green shares  thoughts on Women's History Month and special event registration</p>
+<ul role="list" aria-label="social buttons" class="social-actions"><li class="social-action-option" role="listitem"><a role="button" href="javascript:;" title="Share by email" class="icon-awf-email " data-i18n="[title]app.common.social-actions.share-by-email">
+    <span class="access" data-i18n="app.common.social-actions.share-by-email">Share by email</span>
+</a>
+<span></span></li></ul></div></article><article role="article" class="feed-wrapper__list__item" aria-label="The IBM Story: Environmental sustainability"><img src="./yourIBM_files/earth_156.jpg" class="left" width="60" height="60" alt="Planet Earth">
+<div class="feed-wrapper__list__item__content">
+	<h4 class="title-4"><a href="https://www.ibm.com/blogs/citizen-ibm/2017/03/balta_2017_climate_leadership.html" target="_blank">The IBM Story: Environmental sustainability</a></h4>
+	<p class="caption-1">Profiled for all IBM</p>
+	<p class="desc">EPA Climate Leadership Award demonstrates IBM's leadership in the fight against climate change.</p>
+<ul role="list" aria-label="social buttons" class="social-actions"><li class="social-action-option" role="listitem"><a role="button" href="javascript:;" title="Share by email" class="icon-awf-email " data-i18n="[title]app.common.social-actions.share-by-email">
+    <span class="access" data-i18n="app.common.social-actions.share-by-email">Share by email</span>
+</a>
+<span></span></li></ul></div></article><article role="article" class="feed-wrapper__list__item" aria-label="Apple partnership update"><img src="./yourIBM_files/mobilefirst.jpg" class="left" width="60" height="60" alt="IBM-Apple partnership">
+<div class="feed-wrapper__list__item__content">
+	<h4 class="title-4"><a href="https://w3-connections.ibm.com/blogs/96f35d6d-6f82-43b4-b10c-b4eaef8195e9/entry/Apple_Partnership_Update_The_Story_Evolves_Keeps_Getting_Better" target="_blank">Apple partnership update</a></h4>
+	<p class="caption-1">Profiled for all IBM</p>
+	<p class="desc">What's new? Use cases with cognitive insights, pricing/solutioning geo teams, and more.</p>
+<ul role="list" aria-label="social buttons" class="social-actions"><li class="social-action-option" role="listitem"><a role="button" href="javascript:;" title="Share by email" class="icon-awf-email " data-i18n="[title]app.common.social-actions.share-by-email">
+    <span class="access" data-i18n="app.common.social-actions.share-by-email">Share by email</span>
+</a>
+<span></span></li></ul></div></article><article role="article" class="feed-wrapper__list__item" aria-label="Paul Rizzo – An appreciation"><img src="./yourIBM_files/Rizzo_Paul_IBMSrVP_156.jpg" class="left" width="60" height="60" alt="Paul Rizzo">
+<div class="feed-wrapper__list__item__content">
+	<h4 class="title-4"><a href="https://www.ibm.com/blogs/think/2017/02/paul-rizzo-an-appreciation/" target="_blank">Paul Rizzo – An appreciation</a></h4>
+	<p class="caption-1">Profiled for all IBM</p>
+	<p class="desc">Rizzo, among titans of tech and a one of the builders of IBM, died on February 23.</p>
+<ul role="list" aria-label="social buttons" class="social-actions"><li class="social-action-option" role="listitem"><a role="button" href="javascript:;" title="Share by email" class="icon-awf-email " data-i18n="[title]app.common.social-actions.share-by-email">
+    <span class="access" data-i18n="app.common.social-actions.share-by-email">Share by email</span>
+</a>
+<span></span></li></ul></div></article><p class="go-to" style="display: none;">
+					<a class="redirect" href="https://w3-workplace.ibm.com/workplace/myportal/profile" target="_blank"><span data-i18n="app.cogs.headlines.edit-your-interests">Edit your interests</span><i class="icon-awf-chevron-right"><span class="access">arrow right</span></i>
+					</a>
+				</p>
+            </div>
+        </div>
+        <p class="cta-btn">
+            <button class="flip-1" data-i18n="app.cogs.headlines.cta.view-more">View more headlines</button>
+        </p>
+    </div>
+</div>
+</div></div>
+	<div class="awf-badge-placer js-badge-placer"><div class="awf-badge"></div></div>
+</div></div><div class="grid__item grid__item--x-1 grid__item--y-0 grid__item--r-1 grid__item--c-1"><div class="awf-card-wrap -titled-card">
+	<div class="js-card awf-card -background-base -awf-focus" tabindex="0" role="region" aria-label="BluePages Card"><div class="js-card-titlebar awf-card__titlebar">
+	<h2 class="js-card-title awf-card__titlebar__title -color-alt js-drag-handle" aria-label="Click to Show Large Card" id="UNqqJ-82" role="heading">Bluepages</h2>
+	<div class="js-card-cta awf-card__titlebar__cta -color-alt"><button class="btn-control js-cta-flip awf-card__titlebar__cta__flip" tabindex="-1" aria-hidden="true" title="flip">
+	<span class="js-btn-text btn-control__text awf-access">flip</span>
+	<em class="js-btn-icon btn-control__icon icon-awf-external-link"></em>
+</button></div>
+	<span class="awf-card__titlebar__hr -border-color-base"></span>
+</div>
+<div class="js-card-message awf-card__message"></div>
+<div class="js-card-content awf-card__content" role="region" aria-labelledby="UNqqJ-82"><!--BluePages Search View -->
+<div class="js-bluepages-search bluepages-search">
+	<div class="js-bluepages-search-logo bluepages-search__logo">
+		<p>
+			<i class="icon-awf-w3-logo-bluepages-text"><span class="awf-access" data-i18n="app.cogs.bluepages.label">Bluepages</span></i>
+		</p>
+	</div>
+	<!--BluePages Result View-->
+	<!--Search input-->
+	<div class="js-bluepages-search-result-input bluepages-search__result__input">
+		<button type="submit" class="js-bluepages-result-submit awf-search__submit icon-awf-search -awf-link -text-decoration-none" data-i18n="[title]app.search.label" title="Search"><span data-i18n="app.search.label" class="awf-access">Search</span></button>
+		<label class="awf-access js-bluepages-result-input-label" data-i18n="app.cogs.bluepages.search.placeholder" for="bluepages_result_input_view23_blue_pages_search">Search by name, city, job title, etc...</label>
+		<input data-i18n="[placeholder]app.cogs.bluepages.search.placeholder" placeholder="Search by name, city, job title, etc..." class="js-bluepages-result-input awf-search__input -awf-focus -border-color-link" autocomplete="off" type="search" id="bluepages_result_input_view23_blue_pages_search">
+		<button type="clear" class="js-bluepages-result-clear awf-search__clear icon-awf-op-times-bold -color-alt" tabindex="0" data-i18n="[title]awf.common.clear" title="Clear"><span data-i18n="awf.common.clear" class="awf-access">Clear</span></button>
+	</div>
+	<!-- Result Action Bar -->
+	<div class="js-bluepages-search-result-bar bluepages-search__result__bar">
+		<p class="js-bluepages-search-result-bar-info bluepages-search__result__bar__info"></p>
+		<ul class="js-bluepages-search-result-bar-controller bluepages-search__result__bar__controller"><li>temp icon</li></ul>
+	</div>
+	<!-- Result List -->
+	<div class="js-bluepages-search-results bluepages-search__result__views" tabindex="-1">
+		<ul class="bluepages-search__result__views__list" role="list" aria-label="bluepages search result list wrap view23"></ul>
+	</div>
+	<!-- Result footer -->
+	<div class="js-bluepages-search-result-footer bluepages-search__result__footer">
+		<button class="flip-1" data-i18n="app.cogs.bluepages.cta.view-more">View more people</button>
+	</div>
+</div></div></div>
+	<div class="awf-badge-placer js-badge-placer"><div class="awf-badge"></div></div>
+</div></div><div class="grid__item grid__item--x-2 grid__item--y-0 grid__item--r-1 grid__item--c-1"><div class="awf-card-wrap -titled-card">
+	<div class="js-card awf-card -background-base -awf-focus" tabindex="0" role="region" aria-label="Learning Card"><div class="js-card-titlebar awf-card__titlebar">
+	<h2 class="js-card-title awf-card__titlebar__title -color-alt js-drag-handle" aria-label="Click to Show Large Card" id="aapuU-91" role="heading">Learning</h2>
+	<div class="js-card-cta awf-card__titlebar__cta -color-alt"><button class="btn-control js-cta-flip awf-card__titlebar__cta__flip" tabindex="-1" aria-hidden="true" title="flip">
+	<span class="js-btn-text btn-control__text awf-access">flip</span>
+	<em class="js-btn-icon btn-control__icon icon-awf-external-link"></em>
+</button></div>
+	<span class="awf-card__titlebar__hr -border-color-base"></span>
+</div>
+<div class="js-card-message awf-card__message"></div>
+<div class="js-card-content awf-card__content" role="region" aria-labelledby="aapuU-91"><div class="card js-learning-medium" data-component="learning-medium">
+    <div class="toogle-bar"><ul role="tablist" data-component="tabs" class="tab-actions no-border"><li aria-selected="true" role="tab" aria-label="Courses" id="learning-tab-1" aria-controls="learning-tab-1" class="active"><h3 class="title-4"><a href="javascript:;" title="Courses" data-i18n="app.cogs.learning.courses.label;[title]app.cogs.learning.courses.label">Courses</a></h3></li><li aria-selected="false" role="tab" aria-label="Your Learning" id="learning-tab-3" aria-controls="learning-tab-3"><h3 class="title-4"><a href="javascript:;" title="Your Learning" data-i18n="app.cogs.learning.yours-website.tab_label;[title]app.cogs.learning.yours-website.tab_label">Your Learning</a></h3></li></ul></div>
+    <div class="content">
+        <div class="recommended" aria-labelledby="learning-tab-1" role="tabpanel"><div class="carousel number-nav" role="region" aria-label="Learning medium card carousel">
+    <div class="carousel-content"><article data-component="learning-item" role="article" class="base-view active" aria-label="TLE Canada learning item" data-i18n="[aria-label]app.cogs.learning.wai-aria.aria-label.feature_item" aria-hidden="false" style="left: 0%;"><section class="learning-overview" role="region" aria-label="TLE Canada learning item feature label" data-i18n="[aria-label]app.cogs.learning.wai-aria.aria-label.feature_item_label"><span class="badging label-2" style="display: none;">Featured</span><span class="caption due-date"></span><span class="caption"></span></section>
+<div class="learning-content">
+    <div class="headline">
+        <img src="./yourIBM_files/TLE_logo.png" alt="TLE Canada" class="right" width="75" height="75">
+        <h4 class="title-2" aria-label="TLE Canada"><a href="https://tle.w3bmix.ibm.com/events/2017/event_canada_2017.html" target="_blank">TLE Canada</a></h4>
+        <p data-primitive="desc" class="desc">Virtual enrollment is now open for the next full day Technical Leadership Exchange Event coming to you live from Canada on March 8. Enroll now to join your technical peers to learn, to share, to co...</p>
+    </div>
+</div></article><article data-component="learning-item" role="article" class="base-view" aria-label="Selling in the Cognitive Era learning item" data-i18n="[aria-label]app.cogs.learning.wai-aria.aria-label.feature_item" aria-hidden="true" style="left: 100%;"><section class="learning-overview" role="region" aria-label="Selling in the Cognitive Era learning item feature label" data-i18n="[aria-label]app.cogs.learning.wai-aria.aria-label.feature_item_label"><span class="badging label-2" style="display: none;">Featured</span><span class="caption due-date"></span><span class="caption"></span></section>
+<div class="learning-content">
+    <div class="headline">
+        <img src="./yourIBM_files/sellforward_logo.jpg" alt="Selling in the Cognitive Era" class="right" width="75" height="75">
+        <h4 class="title-2" aria-label="Selling in the Cognitive Era"><a href="https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/W95a711a6f0c6_411e_9b4d_15f94528e804/page/SellForward%20Cognitive%20Academy" target="_blank">Selling in the Cognitive Era</a></h4>
+        <p data-primitive="desc" class="desc">Access videos from 9 industry SellForward Cognitive Academies and Workshops jointly delivered by GBS and S&amp;D to help your clients outthink what's possible in the Cognitive Era!</p>
+    </div>
+</div></article><article data-component="learning-item" role="article" class="base-view" aria-label="Cloud &amp;amp; Cognitive Patterns learning item" data-i18n="[aria-label]app.cogs.learning.wai-aria.aria-label.feature_item" aria-hidden="true" style="left: 100%;"><section class="learning-overview" role="region" aria-label="Cloud &amp;amp; Cognitive Patterns learning item feature label" data-i18n="[aria-label]app.cogs.learning.wai-aria.aria-label.feature_item_label"><span class="badging label-2" style="display: none;">Featured</span><span class="caption due-date"></span><span class="caption"></span></section>
+<div class="learning-content">
+    <div class="headline">
+        <img src="./yourIBM_files/cloud-logo-blue.png" alt="Cloud &amp; Cognitive Patterns" class="right" width="75" height="75">
+        <h4 class="title-2" aria-label="Cloud &amp; Cognitive Patterns"><a href="https://ccp.w3bmix.ibm.com/" target="_blank">Cloud &amp; Cognitive Patterns</a></h4>
+        <p data-primitive="desc" class="desc">Build your skills to confidently and competitively sell IBM's  Cloud &amp; Cognitive solutions</p>
+    </div>
+</div></article><article data-component="learning-item" role="article" class="base-view" aria-label="Developing the Future learning item" data-i18n="[aria-label]app.cogs.learning.wai-aria.aria-label.feature_item" aria-hidden="true" style="left: 100%;"><section class="learning-overview" role="region" aria-label="Developing the Future learning item feature label" data-i18n="[aria-label]app.cogs.learning.wai-aria.aria-label.feature_item_label"><span class="badging label-2" style="display: none;">Featured</span><span class="caption due-date"></span><span class="caption"></span></section>
+<div class="learning-content">
+    <div class="headline">
+        <img src="./yourIBM_files/IBM_TA_W3_Developing-the-Future.jpg" alt="Developing the Future" class="right" width="75" height="75">
+        <h4 class="title-2" aria-label="Developing the Future"><a href="http://ibm.biz/Bds98H" target="_blank">Developing the Future</a></h4>
+        <p data-primitive="desc" class="desc">We are in Act II of our strategy and the role of the developer is more important than ever. Learn why this matters for you in this 20 minute course on Think Academy.</p>
+    </div>
+</div></article><article data-component="learning-item" role="article" class="base-view" aria-label="IT Scrum learning item" data-i18n="[aria-label]app.cogs.learning.wai-aria.aria-label.feature_item" aria-hidden="true" style="left: 100%;"><section class="learning-overview" role="region" aria-label="IT Scrum learning item feature label" data-i18n="[aria-label]app.cogs.learning.wai-aria.aria-label.feature_item_label"><span class="badging label-2" style="display: none;">Featured</span><span class="caption due-date"></span><span class="caption"></span></section>
+<div class="learning-content">
+    <div class="headline">
+        <img src="./yourIBM_files/scrum_logo.png" alt="IT Scrum" class="right" width="75" height="75">
+        <h4 class="title-2" aria-label="IT Scrum"><a href="https://w3-connections.ibm.com/wikis/home?lang=en#!/wiki/IT%20Content%20Availability/page/Trending%20Topic" target="_blank">IT Scrum</a></h4>
+        <p data-primitive="desc" class="desc">Scrum is a popular iterative and incremental agile software development method. This curated content on Scrum is applicable to both beginners and advanced users.</p>
+    </div>
+</div></article><article role="article" aria-label="view more slide" aria-hidden="true" style="left: 100%;">
+	<div class="view-more-slide">
+		<p class="view-more-slide__icon">
+			<i class="icon-youribm-graduation-cap"></i>
+		</p>
+		<p class="view-more-slide__cta">
+			<button class="flip-2" data-i18n="app.cogs.learning.courses.view-more">View More Learning</button>
+		</p>
+	</div>
+</article></div>
+    <div class="slidenav">
+        <div class="carousel-angle side">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-left js-carousel-prev" data-i18n="[aria-label]app.common.pre" aria-label="Previous">
+            	<span class="awf-access" data-i18n="app.common.pre">Previous</span>
+            </button>
+        </div>
+        <div class="carousel-angle side">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-right js-carousel-next" data-i18n="[aria-label]app.common.next" aria-label="Next">
+            	<span class="awf-access" data-i18n="app.common.next">Next</span>
+            	<i class="icon-awf-chevron-right"></i>
+            </button>
+        </div>
+        <div class="carousel-angle" style="display: inline-block;">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-left js-carousel-prev" data-i18n="[aria-label]app.common.pre" aria-label="Previous">
+            	<span class="awf-access" data-i18n="app.common.pre">Previous</span>
+            </button>
+        </div>
+        <ul class="pointers"><li class="number">1/6</li></ul>
+        <div class="carousel-angle" style="display: inline-block;">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-right js-carousel-next" data-i18n="[aria-label]app.common.next" aria-label="Next">
+            	<span class="awf-access" data-i18n="app.common.next">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+        <div class="your-learning" aria-labelledby="learning-tab-2" role="tabpanel"></div>
+        <div class="your-learning-website" aria-labelledby="learning-tab-3" role="tabpanel">
+                <p>
+                    <img alt="Your Learning Logo" src="./yourIBM_files/yourlearning.png">
+                </p>
+                <p data-i18n="app.cogs.learning.yours-website.message">Access Your Learning, a personalized learning environment that helps each IBMer easily find, consume, and track learning content.</p>
+                <p>
+                    <button class="flip-2" data-i18n="app.cogs.learning.yours-website.cta">Visit the Your Learning Site</button>
+                </p>
+        </div>
+    </div>
+</div>
+</div></div>
+	<div class="awf-badge-placer js-badge-placer"><div class="awf-badge"></div></div>
+</div></div><div class="grid__item grid__item--x-1 grid__item--y-1 grid__item--r-1 grid__item--c-1"><div class="awf-card-wrap -titled-card">
+	<div class="js-card awf-card -background-base -awf-focus" tabindex="0" role="region" aria-label="What&#39;s New Card"><div class="js-card-titlebar awf-card__titlebar">
+	<h2 class="js-card-title awf-card__titlebar__title -color-alt js-drag-handle" aria-label="Click to Show Large Card" id="GAnep-100" role="heading">What's New</h2>
+	<div class="js-card-cta awf-card__titlebar__cta -color-alt"><button class="btn-control js-cta-flip awf-card__titlebar__cta__flip" tabindex="-1" aria-hidden="true" title="flip">
+	<span class="js-btn-text btn-control__text awf-access">flip</span>
+	<em class="js-btn-icon btn-control__icon icon-awf-external-link"></em>
+</button></div>
+	<span class="awf-card__titlebar__hr -border-color-base"></span>
+</div>
+<div class="js-card-message awf-card__message"></div>
+<div class="js-card-content awf-card__content" role="region" aria-labelledby="GAnep-100" data-component="whatsnew"><div data-primitive="hover_trigger" class="card whatsnew">
+	<div class="content" role="region" aria-label="What&#39;s new medium content" data-i18n="[aria-label]app.cogs.whatsnew.aria-label.medium-content"><div class="carousel number-nav" role="region" aria-label="Carousel0">
+    <div class="carousel-content"><div class="base-view active" role="region" aria-label="What&#39;s new medium item view" data-i18n="[aria-label]app.cogs.whatsnew.aria-label.medium-view" aria-hidden="false" style="left: 0%;"><article class="whatsnew__item" role="article" aria-label="Announcing PC@IBM">
+    <div class="whatsnew__content">
+        <div class="hero-image">
+            <a href="javascript:;" title="PC@IBM Medium view image">
+                <img alt="PC@IBM Medium view image" class="hero" src="./yourIBM_files/020217PC-medium-v2.png">
+            </a>
+        </div>
+
+        <div class="content-body">
+            <h3 class="title">
+                <a data-primitive="title_link" href="http://ibm.biz/AnnouncingPCatIBM" target="_blank" title="Announcing PC@IBM">
+                    Announcing PC@IBM
+                </a>
+            </h3>
+            <div class="post_time">
+                <span class="date">2 February 2017</span>
+                <button class="more_link slide-on" href="javascript:;" data-i18n="awf.common.show_more" data-primitive="more_link">Show more</button>
+            </div>
+            <div class="abstract" data-primitive="abstract"><p>Announcing PC@IBM - a completely re-imagined Windows 10 program: new devices, new operating system, and improved support.</p></div>
+        </div>
+    </div>
+</article></div></div>
+    <div class="slidenav">
+        <div class="carousel-angle side">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-left js-carousel-prev" data-i18n="[aria-label]app.common.pre" aria-label="Previous">
+            	<span class="awf-access" data-i18n="app.common.pre">Previous</span>
+            </button>
+        </div>
+        <div class="carousel-angle side">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-right js-carousel-next" data-i18n="[aria-label]app.common.next" aria-label="Next">
+            	<span class="awf-access" data-i18n="app.common.next">Next</span>
+            	<i class="icon-awf-chevron-right"></i>
+            </button>
+        </div>
+        <div class="carousel-angle" style="display: inline-block;">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-left js-carousel-prev" data-i18n="[aria-label]app.common.pre" aria-label="Previous">
+            	<span class="awf-access" data-i18n="app.common.pre">Previous</span>
+            </button>
+        </div>
+        <ul class="pointers"><li class="number">1/4</li></ul>
+        <div class="carousel-angle" style="display: inline-block;">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-right js-carousel-next" data-i18n="[aria-label]app.common.next" aria-label="Next">
+            	<span class="awf-access" data-i18n="app.common.next">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+</div></div></div>
+	<div class="awf-badge-placer js-badge-placer"><div class="awf-badge"></div></div>
+</div></div><div class="grid__item grid__item--x-2 grid__item--y-1 grid__item--r-2 grid__item--c-1"><div class="awf-card-wrap -titled-card">
+	<div class="js-card awf-card -background-base -awf-focus" tabindex="0" role="region" aria-label="Places Card"><div class="js-card-titlebar awf-card__titlebar">
+	<h2 class="js-card-title awf-card__titlebar__title -color-alt js-drag-handle" aria-label="Click to Show Large Card" id="hpaff-109" role="heading">Places</h2>
+	<div class="js-card-cta awf-card__titlebar__cta -color-alt"><button class="btn-control js-cta-flip awf-card__titlebar__cta__flip" tabindex="-1" aria-hidden="true" title="flip">
+	<span class="js-btn-text btn-control__text awf-access">flip</span>
+	<em class="js-btn-icon btn-control__icon icon-awf-external-link"></em>
+</button></div>
+	<span class="awf-card__titlebar__hr -border-color-base"></span>
+</div>
+<div class="js-card-message awf-card__message"></div>
+<div class="js-card-content awf-card__content" role="region" aria-labelledby="hpaff-109"><div class="base-view" aria-label="Places Medium Coach Mark" data-component="coach-mark"><div>
+	<button class="bulb" data-primitive="bulb" title="Learn more about Places" data-i18n="[title]app.components.coach-mark.bulb;[aria-label]app.components.coach-mark.aria-label" aria-label="Cocah Tips" style="top: 0px; display: inline-block;">
+		<label class="access">bulb</label>
+		<i class="icon-youribm-lightbulb"></i>
+	</button>
+	<div class="coach-mark blue" role="note" tabindex="1">
+	    <div class="background" data-primitive="background"></div>
+	    <button class="close" data-primitive="close"><i class="icon-awf-op-times-circle"></i><span class="access" data-i18n="awf.common.close">Close</span></button>
+	<div class="carousel number-nav" role="region" aria-label="Places Medium Coach Mark">
+    <div class="carousel-content"><div class="content active" aria-hidden="false" style="left: 0%;"><div class="icon" style="background: url(https://w3.ibm.com/images/cognitive-places/anim_places_move.gif) 0% 0% no-repeat;"></div><div class="tip"><p><strong data-i18n="app.cogs.places.coach-mark.medium.slide1.line1">Sign In to change the layout of your Places card.</strong></p><p data-i18n="app.cogs.places.coach-mark.medium.slide1.line2">Then click and hold a Place to move it around.</p><p style="padding-top: 20px; margin-bottom: 0;display:none; data-i18n=" app.cogs.places.coach-mark.medium.slide1.line3'="">Visit our community page to  view more instructional <a href="https://w3.ibm.com/#" '="" target="_blank">videos</a>.</p></div></div><div class="content" aria-hidden="true" style="left: 100%;"><div class="icon" style="background: url(https://w3.ibm.com/images/cognitive-places/anim_places_expand.gif) 0% 0% no-repeat;"></div><div class="tip"><p><strong data-i18n="app.cogs.places.coach-mark.medium.slide2.line1">Customize your Places.</strong></p><p data-i18n="app.cogs.places.coach-mark.medium.slide2.line2">Expand the card to pick your top 10 Places.</p><p style="padding-top: 20px;display:none;" data-i18n="[html]app.cogs.places.coach-mark.medium.slide2.line3">Visit our community page to  view more instructional <a href="https://w3.ibm.com/#" target="_blank">videos</a>.</p><p style="margin-bottom: 0;"><button class="button outline flip-2" href="javascript:;" id="cognitive_places_coach_mark_got_button" data-i18n="app.cogs.places.coach-mark.medium.slide2.line4">Got it</button></p></div></div></div>
+    <div class="slidenav">
+        <div class="carousel-angle side">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-left js-carousel-prev" data-i18n="[aria-label]app.common.pre" aria-label="Previous">
+            	<span class="awf-access" data-i18n="app.common.pre">Previous</span>
+            </button>
+        </div>
+        <div class="carousel-angle side">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-right js-carousel-next" data-i18n="[aria-label]app.common.next" aria-label="Next">
+            	<span class="awf-access" data-i18n="app.common.next">Next</span>
+            	<i class="icon-awf-chevron-right"></i>
+            </button>
+        </div>
+        <div class="carousel-angle" style="display: inline-block;">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-left js-carousel-prev" data-i18n="[aria-label]app.common.pre" aria-label="Previous">
+            	<span class="awf-access" data-i18n="app.common.pre">Previous</span>
+            </button>
+        </div>
+        <ul class="pointers"><li class="number">1/2</li></ul>
+        <div class="carousel-angle" style="display: inline-block;">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-right js-carousel-next" data-i18n="[aria-label]app.common.next" aria-label="Next">
+            	<span class="awf-access" data-i18n="app.common.next">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+</div></div><div class="loading-mark" style="display: none;"><i data-primitive="icon" class="loading-indicator"></i></div><div class="card places-medium" role="navigation">
+	<ul class="link-list" data-container="content" role="list" aria-label="places link list"><li class="places-medium-item " role="listitem" data-id="3">
+	<div>
+		<p class="icon">
+			<i class="icon-awf-w3-logo-bluepages"></i>
+		</p>
+		<p class="title">
+			<a class="-awf-link" href="http://w3.ibm.com/bluepages/" target="_blank" data-i18n="app.cogs.places.links.blue-pages.title">BluePages</a>
+		</p>
+	</div>
+</li><li class="places-medium-item " role="listitem" data-id="36">
+	<div>
+		<p class="icon">
+			<i class="icon-awf-w3-logo-checkpoint-thin"></i>
+		</p>
+		<p class="title">
+			<a class="-awf-link" href="http://w3.ibm.com/hr/web/performance/checkpointtracker" target="_blank" data-i18n="app.cogs.places.links.checkpoint.title">Checkpoint</a>
+		</p>
+	</div>
+</li><li class="places-medium-item " role="listitem" data-id="10">
+	<div>
+		<p class="icon">
+			<i class="icon-awf-w3-logo-connections-thin"></i>
+		</p>
+		<p class="title">
+			<a class="-awf-link" href="https://w3-connections.ibm.com/" target="_blank" data-i18n="app.cogs.places.links.connections.title">Connections</a>
+		</p>
+	</div>
+</li><li class="places-medium-item " role="listitem" data-id="12">
+	<div>
+		<p class="icon">
+			<i class="icon-youribm-expenses"></i>
+		</p>
+		<p class="title">
+			<a class="-awf-link" href="http://w3.ibm.com/hr/web/expenses/" target="_blank" data-i18n="app.cogs.places.links.expense-reimbursement.title">Expense Reimbursement</a>
+		</p>
+	</div>
+</li><li class="places-medium-item " role="listitem" data-id="19">
+	<div>
+		<p class="icon">
+			<i class="icon-awf-w3-logo-help-thin"></i>
+		</p>
+		<p class="title">
+			<a class="-awf-link" href="https://w3.ibm.com/help" target="_blank" data-i18n="app.cogs.places.links.help-ibm.title">Help@IBM</a>
+		</p>
+	</div>
+</li><li class="places-medium-item " role="listitem" data-id="22">
+	<div>
+		<p class="icon">
+			<i class="icon-awf-w3-logo-verse-thin"></i>
+		</p>
+		<p class="title">
+			<a class="-awf-link" href="https://mail.notes.na.collabserv.com/sequoia/index.html" target="_blank" data-i18n="app.cogs.places.links.mail-verse.title">Mail: Verse</a>
+		</p>
+	</div>
+</li><li class="places-medium-item " role="listitem" data-id="23">
+	<div>
+		<p class="icon">
+			<i class="icon-youribm-clock"></i>
+		</p>
+		<p class="title">
+			<a class="-awf-link" href="https://apps.na.collabserv.com/meetings/" target="_blank" data-i18n="app.cogs.places.links.meetings.title">Meetings</a>
+		</p>
+	</div>
+</li><li class="places-medium-item " role="listitem" data-id="27">
+	<div>
+		<p class="icon">
+			<i class="icon-youribm-avatar-briefcase"></i>
+		</p>
+		<p class="title">
+			<a class="-awf-link" href="https://w3.ibm.com/services/tools/marketplace/displayLogin.wss" target="_blank" data-i18n="app.cogs.places.links.professional-marketplace.title">Professional Marketplace</a>
+		</p>
+	</div>
+</li><li class="places-medium-item " role="listitem" data-id="28">
+	<div>
+		<p class="icon">
+			<i class="icon-youribm-monitor-chart-line"></i>
+		</p>
+		<p class="title">
+			<a class="-awf-link" href="http://w3.ibm.com/sales/salesconnect" target="_blank" data-i18n="app.cogs.places.links.sales-connect.title">SalesConnect</a>
+		</p>
+	</div>
+</li><li class="places-medium-item " role="listitem" data-id="32">
+	<div>
+		<p class="icon">
+			<i class="icon-awf-lock-key-thin"></i>
+		</p>
+		<p class="title">
+			<a class="-awf-link" href="https://w3-03.ibm.com/profile/update/password/en-us/index.html" target="_blank" data-i18n="app.cogs.places.links.update-password.title">Update password</a>
+		</p>
+	</div>
+</li></ul>
+    <p class="cta-btn">
+        <button class="flip-1" data-i18n="app.cogs.places.cta.view-all">View all popular links</button>
+    </p>
+</div></div></div>
+	<div class="awf-badge-placer js-badge-placer"><div class="awf-badge"></div></div>
+</div></div><div class="grid__item grid__item--x-0 grid__item--y-2 grid__item--r-1 grid__item--c-1"><div class="awf-card-wrap -titled-card">
+	<div class="js-card awf-card -background-base -awf-focus" tabindex="0" role="region" aria-label="Media Card"><div class="js-card-titlebar awf-card__titlebar">
+	<h2 class="js-card-title awf-card__titlebar__title -color-alt js-drag-handle" aria-label="Click to Show Large Card" id="KOxhZ-118" role="heading">Media</h2>
+	<div class="js-card-cta awf-card__titlebar__cta -color-alt"><button class="btn-control js-cta-flip awf-card__titlebar__cta__flip" tabindex="-1" aria-hidden="true" title="flip">
+	<span class="js-btn-text btn-control__text awf-access">flip</span>
+	<em class="js-btn-icon btn-control__icon icon-awf-external-link"></em>
+</button></div>
+	<span class="awf-card__titlebar__hr -border-color-base"></span>
+</div>
+<div class="js-card-message awf-card__message"></div>
+<div class="js-card-content awf-card__content" role="region" aria-labelledby="KOxhZ-118"><div class="card" data-component="media-medium">
+	<div class="content" role="region" aria-label="Meida medium card"><div class="carousel number-nav" role="region" aria-label="Media medium card carousel">
+    <div class="carousel-content"><article aria-label="Ginni&#39;s keynote at HIMSS17" role="article" class="active" aria-hidden="false" style="left: 0%;"><div class="video-entry">
+	<div class="video-entry__player">
+		<!-- Add video player here-->
+		<span class="video-entry__badge label-2" data-i18n="app.common.badge.featured">Featured</span>
+		<img class="video-entry__poster" src="./yourIBM_files/chq-ginni-himss-724.jpg" alt="Ginni&#39;s keynote at HIMSS17">
+		<button class="video-entry__play-btn icon-awf-play" data-i18n="[title]awf.common.media-controls.play" title="Play"><span class="awf-access" data-i18n="awf.common.media-controls.play">Play</span></button>
+	</div>
+	<div class="video-entry__info--less">
+		<h3 class="video-entry__info--less__title title-3">Ginni's keynote at HIMSS17</h3>
+		<p class="video-entry__info--less__cta">
+			<button class="slide-on" data-i18n="[title]awf.common.show_more;awf.common.show_more" title="Show more" href="javascript:;">Show more</button>
+		</p>
+	</div>
+	<div class="video-entry__info--more" style="display:none">
+		<h3 class="video-entry__info--more__title title-4">Ginni's keynote at HIMSS17</h3>
+		<p class="video-entry__info--more__desc">
+			Watch the replay of Ginni's remarks and Q&amp;A from the Healthcare Information and Management Systems Society annual conference. <a href="https://w3-connections.ibm.com/blogs/30f982c3-616f-4b5b-9978-3b711e1fda79/entry/Making_strides_toward_our_healthcare_moonshot" target="_blank">Read more on THINKtogether</a>.
+		</p>
+        <a class="redirect" href="https://w3-mediahub.ibm.com/viewerportal/vmds/video.vp?programId=esc_program%3A122061" target="_blank" data-i18n="[html]app.cogs.media.view-at-source">View at source <i class="icon-awf-chevron-right"></i></a>
+		<p class="video-entry__info--more__cta">
+			<button class="slide-off" data-i18n="[title]awf.common.show_less;awf.common.show_less" title="Show less" href="javascript:;">Show less</button>
+		</p>
+	</div>
+</div></article></div>
+    <div class="slidenav">
+        <div class="carousel-angle side">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-left js-carousel-prev" data-i18n="[aria-label]app.common.pre" aria-label="Previous">
+            	<span class="awf-access" data-i18n="app.common.pre">Previous</span>
+            </button>
+        </div>
+        <div class="carousel-angle side">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-right js-carousel-next" data-i18n="[aria-label]app.common.next" aria-label="Next">
+            	<span class="awf-access" data-i18n="app.common.next">Next</span>
+            	<i class="icon-awf-chevron-right"></i>
+            </button>
+        </div>
+        <div class="carousel-angle" style="display: inline-block;">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-left js-carousel-prev" data-i18n="[aria-label]app.common.pre" aria-label="Previous">
+            	<span class="awf-access" data-i18n="app.common.pre">Previous</span>
+            </button>
+        </div>
+        <ul class="pointers"><li class="number">1/2</li></ul>
+        <div class="carousel-angle" style="display: inline-block;">
+            <button class="carousel-button -awf-link-inverted icon-awf-chevron-right js-carousel-next" data-i18n="[aria-label]app.common.next" aria-label="Next">
+            	<span class="awf-access" data-i18n="app.common.next">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+</div></div></div>
+	<div class="awf-badge-placer js-badge-placer"><div class="awf-badge"></div></div>
+</div></div></div>
+</div></div>
+		<div id="mini-grid"><div class="grid -is-1-col grid--animated" id="grid-xvmwa-69" style="height: 190px;">
+	<div class="grid__inner-wrapper js-wrapper"><div class="grid__item grid__item--x-0 grid__item--y-0 grid__item--r-1 grid__item--c-1"><div class="awf-card-wrap -icon-card js-drag-handle">
+	<div class="js-card awf-card -background-base -awf-focus" tabindex="0" role="button" aria-expanded="false"><div class="stock-mini" role="region" aria-label="stock mini card" data-i18n="[aria-label]app.cogs.stock.aria-label.mini-card">
+	<p class="price">
+		<span class="price__currentPrice">180.53</span>
+		<span class="price__arrow"><em class="icon-awf-arrow-down price__arrow--down" aria-label="stock price down icon" data-i18n="[aria-label]app.cogs.stock.price.down"></em></span>
+		<span class="price__changeDols"><em class="price__changeDols--down">1.41</em></span>
+	</p>
+	<p class="name">IBM Stock</p>
+</div></div>
+	<div class="awf-badge-placer js-badge-placer"><div class="awf-badge"></div></div>
+</div></div><div class="grid__item grid__item--x-0 grid__item--y-1 grid__item--r-1 grid__item--c-1"><div class="awf-card-wrap -icon-card js-drag-handle">
+	<div class="js-card awf-card -background-base -awf-focus" tabindex="0" role="button" aria-expanded="false"><div class="awf-card__icon">
+	<div class="js-card-icon-icon awf-card__icon__icon -color-link"><em class="icon-awf-box-closed"></em></div>
+	<span class="js-card-icon-text awf-card__icon__text -color-link">Think Academy</span>
+</div></div>
+	<div class="awf-badge-placer js-badge-placer"><div class="awf-badge"></div></div>
+</div></div></div>
+</div></div>
+	</div>
+</div></div>
+		</div>
+	</div>
+	<div class="js-page-trays awf-page-trays"><div class="awf-tray about-tray" style="position: fixed; bottom: 60px;">
+	<button class="awf-access js-loop-to-last awf-tray__loop-last" aria-hidden="true">Loop to last</button>
+	<div class="js-tray-toggle awf-tray__toggle -background-link" style="top: auto; bottom: 0px;">
+		<button class="js-tray-show awf-tray__toggle__show -awf-focus" aria-label="Show About yourIBM" title="Show About yourIBM" aria-controls="MGorE-41"><em class="icon-awf-info-circle"></em> <span class="awf-access" data-i18n="awf.common.open">open</span></button>
+		<button class="js-tray-hide awf-tray__toggle__hide -awf-focus" aria-label="Hide About yourIBM" title="Hide About yourIBM" aria-controls="MGorE-41"><em class="icon-awf-op-times"></em> <span class="awf-access" data-i18n="awf.common.close">Close</span></button>
+	</div>
+	<div class="js-tray-content awf-tray__content -background-base" role="region" aria-expanded="false" aria-label="About yourIBM Content" id="MGorE-41" style="min-height: 320px;"></div>
+	<button class="awf-access js-loop-to-first awf-tray__loop-last" aria-hidden="true">Loop to first</button>
+</div></div>
+	<footer role="contentinfo" class="footer footer--fixed group -background-base" data-feature="page.footer">
+
+	<nav role="navigation" aria-label="Footer Links" class="footer__nav" data-feature="footer.linklist" data-i18n="[aria-label]awf.page.footer.links">
+		<ul class="js-footer-links footer__list-wrap"><li class="footer__list-item">
+	<a class="js-footer-item footer__list-item__a" href="http://w3.ibm.com/w3/info_terms_of_use.html" target="_blank">Terms of Use</a>
+</li><li class="footer__list-item">
+	<a class="js-footer-item footer__list-item__a" href="http://w3.ibm.com/ibm/documents/corpdocweb.nsf/ContentDocsByTitle/Business+Conduct+Guidelines" target="_blank">Business Conduct Guidelines</a>
+</li><li class="footer__list-item">
+	<a class="js-footer-item footer__list-item__a" href="http://w3.ibm.com/feedback/" target="_blank">Feedback</a>
+</li><li class="footer__list-item">
+	<a class="js-footer-item footer__list-item__a" href="https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/Wf49a0f070e65_41de_bb0a_ff81f7eb3319/page/yourIBM%20Accessibility%20Features" target="_blank">yourIBM Accessibility</a>
+</li><li class="footer__list-item">
+	<a class="js-footer-item footer__list-item__a" href="https://w3-connections.ibm.com/communities/service/html/communitystart?communityUuid=6dd64b47-6463-4cf4-8f10-c18d63bf00b3&lang=en-us" target="_blank">yourIBM Community</a>
+</li></ul>
+	</nav>
+
+	<div class="js-footer-logo footer__logo"><div class="-is-w3"><em class="icon-awf-w3-logo-ibm"><span class="awf-access">IBM</span></em></div></div>
+
+</footer>
+</div><div class="usabilla_live_button_container" tabindex="0" style="z-index:999;right:0px;top:50%;margin-top:-47px;position:fixed;width:38px;height:95px"><iframe src="" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" data-tags="right" title="Usabilla Feedback Button" style="width: 38px; height: 95px; margin: 0px; padding: 0px; border: 0px; overflow: hidden; z-index: 9998; position: absolute; left: 0px; top: 0px; box-shadow: 0px 0px 0px; background-color: transparent;"></iframe></div></body></html>

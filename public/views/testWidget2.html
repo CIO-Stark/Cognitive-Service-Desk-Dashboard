@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en"><head>
+
+	<title>Stark Site - to be changed</title>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="white">
+	<meta name="fragment" content="!">
+
+	<base href="/">
+
+	<!-- BEGIN | Site Style (copied from Meteor) -->
+	<link rel="stylesheet" type="text/css" class="__meteor-css__" href="../css/ibm-1.css?meteor_css_resource=true">
+	<link rel="stylesheet" type="text/css" class="__meteor-css__" href="../css/ibm-2.css?meteor_css_resource=true">
+	<!-- END | Site Style (copied from Meteor) -->
+
+	<!-- BEGIN | Site Scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.3/angular-sanitize.min.js"></script>
+
+	<script src="../js/doc/app.js"></script>
+	<script src="../js/doc/diagramTexts.js"></script>
+	<!-- END | Site Scripts -->
+	
+	<script src="../js/dist/js/widget.js"></script>
+	<link rel="stylesheet" href="../css/widget.style.css">
+
+	<!-- BEGIN | Site Animation Styles -->
+	<style type="text/css">
+		.transitions-container {
+			position: relative;
+			-webkit-perspective: 1200px;
+			-moz-perspective: 1200px;
+			perspective: 1200px;
+			overflow-x: hidden;
+		}
+		.transitions-content {
+			width: 100%;
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			backface-visibility: hidden;
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			height: 100%;
+		}
+		.conversation-test {
+			min-width: 300px;
+			min-height: 375px;
+			max-height: 375px;
+			height: 100%;
+			width: 40%;
+			
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			z-index: 1;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+
+	</style>
+	<!-- END | Site Animation Styles -->
+
+<body ng-app="App">
+
+	<div ng-include='"../templates/header.html"'></div>
+	
+		<!-- BEGIN | Content -->
+	<div class="transitions-container">
+		<div class="transitions-content">
+			<div id="main-holder" itemscope="" itemtype="http://schema.org/BlogPosting">
+				<div class="page-con architecture-page" id="architecture-page">
+	
+					<!-- BEGIN - Product banner -->
+					<div class="dovetail-banner backHero bg-home banner-background" style="max-height: 80px">
+						<div class="container">
+							<div class="col-xs-12 col-md-9">
+								<div class="row">
+									<h1>Widget</h1>
+									<h3>Exemplos de uso do widget</h3>
+								</div>
+								<!--
+								<div class="row">
+									<div class="extended-banner-share-buttons">
+										<div class="follow-icons hero-share-buttons">
+											<span class="social social-twitter"></span>
+											<span class="social social-linked-in"></span>
+										</div>
+									</div>
+								</div>
+								-->
+							</div>
+						</div>
+					</div>
+					<!-- END - Product banner -->
+	
+					<!-- BEGIN - Lateral Menu & Content -->
+					<div class="container archContainer">
+						<div class="row">
+							<div class="flex-row">
+	
+								<!-- BEGIN - Lateral Menu -->
+								<div class="col-xs-12 col-md-2 leftNavColumns">
+									<div class="leftNavBarStyles">
+										<div class="left_nav_spacer"></div>
+	
+										<!-- BEGIN - Lateral Menu HEADER -->
+										<div ng-repeat="menu in product_menu">
+											<div class="leftMenuTitle">
+												<img class="leftMenuIconTitle hidden-icon" alt="">
+												Widget
+											</div>
+	
+											<!-- BEGIN - Lateral Menu MENU -->
+											<ul class="leftNavBarList">
+												<li class="left_nav_link">
+													<img class="leftMenuIconTitleList hidden-icon" alt="">
+													<div class="activelink left_nav_section_link" >Widget</div>
+													<!-- leftNavSelectedItem -->
+												</li>
+												
+											</ul>
+										</div>
+										<!-- END - Lateral Menu MENU -->
+										<!-- END - Lateral Menu HEADER -->
+									</div>
+								</div>
+								<!-- END - Lateral Menu -->
+	
+								<!-- BEGIN - Content -->
+								<div class="col-xs-12 col-md-10 articleContent">
+									<!-- Add the Content of the Article -->
+									<div class="arch-implementation-page">
+										<section class="content-text"><h2 id="cognitivepreparing">Embedded</h2><hr></section>								</div>    
+	   								<div class="row">
+										<div class="content-holder col-lg-12 col-xs-12">
+											<div id="conversation-widget" class="conversation-test"></div>
+		
+										</div>
+									</div>
+
+								</div> 
+								<!-- END - Content -->
+								
+	       							
+							</div>
+						</div>
+					</div>
+					<!-- END - Lateral Menu & Content -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END | Content -->
+
+	
+	
+
+</body>
+<script>
+
+console.log("log:" + window.conversationWidget);
+window.conversationWidget.init({
+    "parentContainer": "#conversation-widget",
+    "baseURL": "https://stark-dev-uradigital.mybluemix.net/askWatson?module=hr_module",
+    "includeHeader": true,
+    "customLogo": "",
+    "customTitle": "Watson Conversation Widget",
+    "enableFeedback": true,
+    "feedbackEndpoint": "https://stark-dev-uradigital.mybluemix.net/sendFeedback?module=hr_module",
+    "extraOptionsEndpoint": "https://stark-dev-uradigital.mybluemix.net/getExtraOptions?module=hr_module",
+    "enableLogin": true,
+    "widgetLanguage": "pt",
+    "topBarColor" : "white",
+    "chatWindowColor" : "azure",
+    "questionBarColor" : "#4682b4"
+});
+</script>
+</html>

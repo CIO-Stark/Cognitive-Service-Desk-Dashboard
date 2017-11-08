@@ -1,0 +1,50 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="css/widget.style.css">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">	
+
+
+</head>
+<style>
+.conversation-test {
+    min-width: 300px;
+    min-height: 300px;
+    width: 40%;
+    height: 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+</style>
+ <script src="js/dist/js/widget.js"></script>
+
+
+
+<body>
+<div id="conversation-widget" class="conversation-test"></div>
+</body>
+<script>
+
+console.log(window.conversationWidget);
+window.conversationWidget.init({
+    "parentContainer": "#conversation-widget",
+    "baseURL": "https://stark-dev-uradigital.mybluemix.net/askWatson?module=hr_module",
+    "includeHeader": true,
+    "customLogo": "",
+    "customTitle": "Watson Cognitive Service Desk",
+    "enableFeedback": true,
+    "feedbackEndpoint": "https://stark-dev-uradigital.mybluemix.net/sendFeedback?module=hr_module",
+    "extraOptionsEndpoint": "https://stark-dev-uradigital.mybluemix.net/getExtraOptions?module=hr_module",
+    "enableLogin": true,
+    "widgetLanguage": "pt",
+    "topBarColor" : "white",
+    "chatWindowColor" : "azure",
+    "questionBarColor" : "#4682b4"
+});
+</script>
+
+</html>

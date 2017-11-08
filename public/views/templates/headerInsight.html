@@ -1,0 +1,33 @@
+<div ng-controller="insightsCtrl">
+    <div ng-show="loading" class="loading">
+      <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+    </div>
+  <nav class="level" ng-hide="loading">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Perguntas totais</p>
+        <p class="title" ng-bind="totalQuestions"></p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Confiança Geral</p>
+        <p class="title" ng-if="generalConfidence">{{((generalConfidence)*100).toFixed(2)}}%</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Acessos únicos</p>
+        <p class="title" ng-bind="totalSessions"></p>
+      </div>
+    </div>
+    
+    
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Feedbacks</p>
+        <p class="title" ng-bind="totalFeedbacks"></p>
+      </div>
+    </div>
+  </nav>
+</div>

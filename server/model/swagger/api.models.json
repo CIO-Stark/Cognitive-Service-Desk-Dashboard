@@ -1,0 +1,119 @@
+{
+  "/askWatson": {
+    "post": {
+      "tags": [
+        "Ask Watson"
+      ],
+      "summary": "Send a question to be processed by Watson Conversation API",
+      "parameters": [
+        {
+          "name": "question",
+          "in": "query",
+          "description": "Natural Language Question to be consumed by Watson API",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "module",
+          "in": "query",
+          "description": "Module to be used as a Conversation Provider",
+          "required": true,
+          "type": "string",
+          "default": "hr_module"
+        }, {
+          "name": "context",
+          "in": "body",
+          "description": "Context object used to track the whole conversation context. Acquired by calling the sendMessage api once",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/Context"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "schema": {
+            "$ref": "#/definitions/Profile"
+          }
+        },
+        "default": {
+          "description": "Unexpected error",
+          "schema": {
+            "$ref": "#/definitions/Error"
+          }
+        }
+      }
+    }
+  },
+  "/sendFeedback": {
+    "post": {
+      "tags": [
+        "Send Feedback"
+      ],
+      "summary": "Send a feedback about an answer provided by Watson Conversation API",
+      "parameters": [
+        {
+          "name": "module",
+          "in": "query",
+          "description": "Module to be used as a Conversation Provider",
+          "required": true,
+          "type": "string",
+          "default": "hr_module"
+        }, {
+          "name": "feedback",
+          "in": "body",
+          "description": "Feedback object used to represent an user feedback about a Watson Conversation interaction",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Feedback"
+          }
+        }
+      ]
+    }
+  },
+  "/queryFeedback": {
+    "post": {
+      "tags": [
+        "List all Feedbacks that match a specific query"
+      ],
+      "summary": "List all current feedback objects",
+      "parameters": [
+        {
+          "name": "module",
+          "in": "query",
+          "description": "Module to be used as a Conversation Provider",
+          "required": true,
+          "type": "string",
+          "default": "hr_module"
+        }, {
+          "name": "filters",
+          "in": "body",
+          "description": "Query object used to retrieve specific documents",
+          "produces": [
+            "application/json"
+          ],
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/FeedbackQuery"
+          }
+        }
+      ]
+    }
+  },
+  "/listFeedback": {
+    "get": {
+      "tags": [
+        "List all stored Feedback"
+      ],
+      "summary": "List all current feedback objects",
+      "parameters": [{
+        "name": "module",
+        "in": "query",
+        "description": "Module to be used as a Conversation Provider",
+        "required": true,
+        "type": "string",
+        "default": "hr_module"
+      }]
+    }
+  }
+}

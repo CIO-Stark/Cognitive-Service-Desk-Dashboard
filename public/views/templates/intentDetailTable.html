@@ -1,0 +1,43 @@
+
+<div class="panel-block">
+  <button class="button is-small" ng-click="exportData()">Export</button>
+</div>
+
+<div class="panel-block">
+  <div id="intentDetailExportable" style="overflow-y: scroll;max-height: 350px;" class="">
+    <div ng-show="loadingIntent" class="loading">
+      <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+      <span class="sr-only">Loading...</span>
+    </div>
+    <table class="table is-narrow is-striped is-fullwidth" ng-hide="loadingIntent">
+      <thead>
+        <tr>
+          <th>Usuário</th>
+          <th>Questão</th>
+          <th>Confiança</th>
+          <th>Feedback</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr ng-repeat="intents in intentReportData | orderBy:sortType:sortReverse | filter:searchFilter ">
+          <th>{{intents.userID}}</th>
+          <th>{{intents.question}}</th>
+          <td>{{((intents.confidence)*100).toFixed(2)}}%</strong></td>
+          <td class="has-text-centered">
+            <span ng-if="intents.feedbackStatus == 'positive'">
+              <i class="fa fa-thumbs-o-up" aria-hidden="true"><span style="display: none">positivo</span></i>
+            </span>
+            <span ng-if="intents.feedbackStatus == 'negative'">
+
+              <i class="fa fa-thumbs-o-down" aria-hidden="true"><span style="display: none">negativo</span></i>
+            </span>
+          </td>
+          <td>{{intents.feedbackDate | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+        </tr ng-repeat-end>
+        
+      </tbody>
+    </table>
+  </div>
+</div>

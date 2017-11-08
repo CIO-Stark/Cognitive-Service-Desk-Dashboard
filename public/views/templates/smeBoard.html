@@ -1,0 +1,117 @@
+<div ng-controller="boardCtrl">
+<p></p>
+<form>
+	<div class="form-group">
+	  <div class="input-group">
+	  	<button type="button" id="searchButton" class="button" ng-click="searchSMEReport();">Atualizar Relatório</button>
+		<p></p>
+	  </div>
+	  <div class="input-group">		
+		<div class="input-group-addon" ><span translate=MAIN.FILTER.ACTION></span>:<i class="fa fa-search"></i></div>
+		<input type="text" class="form-control" ng-model="searchFilter">
+	  </div>      
+	</div>
+</form>
+
+<!-- table -->
+	<span>
+		<div ng-show="feedbackData.loading" translate=SMEBOARD.SAVING></div>
+		<table class="table">
+			<thead>
+				<tr>
+					<!-- <th>
+						 <a href="#" ng-click="sortType = '_id'; sortReverse = !sortReverse">
+								#Conv ID
+								<span ng-show="sortType == '_id' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+								<span ng-show="sortType == '_id' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+							</a>
+					</th> -->
+					<th>
+							<a href="#" ng-click="sortType = 'userID'; sortReverse = !sortReverse">
+								<span translate=SMEBOARD.TABLE.USER></span>
+								<span ng-show="sortType == 'userID' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+								<span ng-show="sortType == 'userID' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+							</a>
+					</th>
+					<th>
+						<span translate=SMEBOARD.TABLE.QUESTIONS></span>
+					</th>
+					<th>
+						<a href="#" ng-click="sortType = 'feedbackStatus'; sortReverse = !sortReverse">
+								<span translate=SMEBOARD.TABLE.FEEDBACK></span>
+								<span ng-show="sortType == 'feedbackStatus' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+								<span ng-show="sortType == 'feedbackStatus' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+							</a>
+						
+					</th>
+					<th>
+						<span translate=SMEBOARD.TABLE.ENTITY></span>
+					</th>
+					<th>
+						<a href="#" ng-click="sortType = 'feedbackDate'; sortReverse = !sortReverse">
+							<span translate=SMEBOARD.TABLE.DATE></span>
+							<span ng-show="sortType == 'feedbackDate' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+							<span ng-show="sortType == 'feedbackDate' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+						</a>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="feed in feedbackData | orderBy:sortType:sortReverse | filter:searchFilter ">
+					<!-- <td>
+						{{feed._id}}
+					</td> -->
+					<td>
+						{{feed.userID}}
+					</td>
+					<td>
+						<ul ng-repeat="chat in feed.chatHistory"> 
+							<li ng-if="chat.userId != 'watson'">
+								{{chat.text}}
+							</li>
+						</ul>
+					</td>
+					<td>
+						<span ng-if="feed.feedbackStatus == 'positive'">
+							{{feed.feedbackStatus || uppercase}}
+						</span>
+						
+						<span ng-if="feed.feedbackStatus == 'negative'">
+							{{feed.feedbackStatus || uppercase}} </br> 
+							<select class="selectpicker" ng-change="updateTraining('{{feed._id}}', feed.feedbackTracking);" 
+													ng-model="feed.feedbackTracking"><!-- feedbackData.selected -->
+							  <optgroup label="Atividades executadas para treinar Watson">
+							    <option value="1" translate=SMEBOARD.TRACKING.TRAINED></option>
+							    <option value="2" translate=SMEBOARD.TRACKING.DIALOG></option>
+							  </optgroup>
+							  <optgroup label="Treinamento não executado">
+							    <option value="3" translate=SMEBOARD.TRACKING.USER_ERROR></option>
+							    <option value="4" translate=SMEBOARD.TRACKING.NO_ISSUE></option>
+							  </optgroup>
+							</select>
+							
+						
+						</span>
+						 
+					</td>
+					<td>
+						<span ng-repeat="chat in feed.chatHistory">
+							<span ng-if="chat.entities.length > 0"> 
+								<ul ng-repeat="ent in chat.entities"> 
+									<li >
+										<span translate=SMEBOARD.TABLE.ENTITY></span>: {{ent.entity}} - 
+										<span translate=SMEBOARD.TABLE.TOPIC></span>: {{ent.value}}
+									</li>
+								</ul>
+							</span>
+						</span>
+					</td>
+					<td>
+						{{feed.feedbackDate | date:'yyyy-MM-dd HH:mm:ss'}}
+					</td>
+				</tr ng-repeat-end>
+			</tbody>
+		</table>						
+	</span>	
+</div>					
+

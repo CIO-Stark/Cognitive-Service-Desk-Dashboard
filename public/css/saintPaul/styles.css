@@ -1,0 +1,414 @@
+/* PRINCIPAL */
+.header-links { background:#282829 }
+h3 { color:#4e3434; }
+.a-saint-paul{ border-bottom: 3px solid #474749; }
+.red{ border-bottom: 3px solid #a0201c; }
+.brown{ border-bottom: 3px solid #9b7137; }
+.green{ border-bottom: 3px solid #4c958c; }
+.blue{ border-bottom: 3px solid #002b5e; }
+.grey{ border-bottom: 3px solid #a9a9a9; }
+
+a.header-logo { background: url("/images/saint-paul-logo-grey.png") no-repeat; }
+a.escola-de-negocios { background: url("images/escola-de-negocios.png") no-repeat; }
+a.editora { background: url("images/editora.png") no-repeat; }
+a.consul { background: url("images/consulting.png") no-repeat; }
+a.faculdade { background: url("images/faculdade.png") no-repeat; }
+
+.box-vermelho { background:#f0dddd; }
+.box-cinza {background:#f9f9f9; border-top:solid #a0201c 15px; margin-top: 147px}
+.box-branco { background:#fff; overflow:hidden; }
+.box-branco-home { background:#fff; overflow:hidden; }
+.box-marrom { background:#e8ded5; overflow: hidden; }
+.box-verde { background:#b4d5d1; }
+.box-rosa2 { background:#c9acac; }
+.box-azul { background:#dadfe6; }
+.box-azul2 { background:#adbbcc; }
+
+.sprite-padrao{ background:url("images/sprite-padrao.png") }
+.sprite-vermelho{ background:url("images/calendar-icon-homepage.png") no-repeat center fixed; }
+.sprite-marrom{ background:url("images/sprite-marrom.jpg") }
+.icon-marrom{ background:url("images/icon-marron.gif") }
+.sprite-vermelho2{background:url("images/icon-vermelho.jpg") no-repeat}
+.sprite-azul{background:url("images/icon-azul.png") no-repeat}
+
+.padrao li a:hover{ background: #474749 !important; }
+.vermelho li a:hover{ background: #8f2b2b !important; }
+.marrom li a:hover{ background: #9b7137 !important; }
+.verde li a:hover{ background: #4c958c !important; }
+.azul li a:hover{ background: #002b5e !important; }
+
+.titulo-marrom{ background:url("images/bg-titulo-marrom.png") repeat-x }
+
+.link-vermelho{ color: #8f2b2b; text-decoration:underline;}
+.link-vermelho:hover{ color: #8f2b2b; text-decoration:none;}
+
+.topico{margin:20px 20px 5px; padding:30px; border:1px solid #999 }
+.topico p{ font-size:13px; }
+.topico p a{ color:#009 }
+.responsa .topico img{ padding:5px; border:1px solid #CCC; float:left; width:100px; margin-right:20px; }
+.responsa .topico span{ display:block; padding-top:20px; }
+.responsa .topico ul li{margin-bottom:15px; font-size:13px;}
+
+/*********************
+    TABs VERMELHA
+*********************/
+.tab-vermelho .grey .ajax__tab_header .ajax__tab_outer {background: url(images/tab-vermelha.png) no-repeat left top transparent;}
+.tab-vermelho .grey .ajax__tab_header .ajax__tab_inner{background: url(images/tab-vermelha.png) no-repeat right top !important;}
+.tab-vermelho .grey .ajax__tab_active .ajax__tab_outer { background: url("images/tab-vermelha.png") no-repeat scroll 0 -40px transparent; }
+.tab-vermelho .grey .ajax__tab_active .ajax__tab_inner { background: url("images/tab-vermelha.png") no-repeat right -40px transparent !important; }
+.tab-vermelho .grey .ajax__tab_body { background: #f5efef }
+
+/*********************
+    PROFISSIONAIS
+*********************/
+.autores, .corpo-docente, .professional{ width:690px; }
+.box-profissionais{margin-top:10px; }
+
+.professional{ padding:15px; }
+.professional .ProfessionalNames{ background:#B4D5D1; }
+.professional .cordion{ background:url("images/mais-menos-verde.gif") no-repeat 660px 10px #c8e4e1; }
+.professional .cordion-fechar{ background:url("images/mais-menos-verde.gif") no-repeat 0 -45px; }
+
+.autoresDetalhe .ProfessionalNames{ width:640px; } 
+.autoresDetalhe .ProfessionalNames li{ border-bottom:1px solid #cecece; margin:0px; }
+.autoresDetalhe .prof-content .publica, 
+.autoresDetalhe .prof-content .ministrados{ width:290px; }
+.autoresDetalhe .ProfessionalNames .descr li,
+.autoresDetalhe .ProfessionalNames .publica li,
+.autoresDetalhe .ProfessionalNames .ministrados li{ border:none; }
+.autoresDetalhe .cordion-fechar{ background:url("images/mais-menos.gif") no-repeat 0 -45px; }
+.autoresDetalhe .cordion{ background:url("images/mais-menos.gif") no-repeat 610px 10px; }
+
+.descricoes.tab-vermelho .autoresDetalhe ul li{ margin:0px !important; list-style:none; }
+.descricoes.tab-vermelho .autoresDetalhe .publica li{ padding-left:15px; }
+.descricoes.tab-vermelho .autoresDetalhe .prof-content .publica, 
+.descricoes.tab-vermelho .autoresDetalhe .prof-content .ministrados{ width:297px; }
+.descricoes.tab-vermelho .autoresDetalhe .ProfessionalNames{ width:657px; }
+.descricoes.tab-vermelho .autoresDetalhe .cordion{ background:url("images/mais-menos.gif") no-repeat scroll 621px 10px transparent; }
+
+.autores .ProfessionalNames{ background:#e8ded5; }
+.autores .cordion{ background:url("images/mais-menos.gif") no-repeat 660px 10px #f4f0eb; }
+.autores .cordion-fechar{ background:url("images/mais-menos.gif") no-repeat 0 -45px; }
+
+.corpo-docente .ProfessionalNames{ background:#F0DDDD; }
+.corpo-docente .cordion{ background:url("images/mais-menos-vermelho.gif") no-repeat 660px 10px #C7B3B3; }
+.corpo-docente .cordion-fechar{ background:url("images/mais-menos-vermelho.gif") no-repeat 0 -45px; }
+
+.ProfessionalNames 
+{
+    background:#e8ded5; 
+    width:690px;  
+    overflow:hidden;
+}
+
+.ProfessionalNames li
+{
+    margin-bottom:2px;  
+}
+
+.cordion
+{
+    padding:7px 15px;
+    display:block;
+    cursor:pointer;
+}
+
+.prof-content
+{
+    padding:15px; 
+    background:#fafafa;
+    overflow:hidden;
+    display:none;
+}
+
+.cordion-fechar
+{
+    display: block;
+    float: right;
+    height: 20px;
+    width: 15px;  
+    cursor:pointer; 
+}
+
+.prof-content img
+{
+    float:right;
+    margin:20px;
+    width:80px;
+    height:100px;
+    border:2px solid #cfb695 !important;    
+}
+
+.prof-content p
+{
+    padding-right:30px;  
+}
+
+.prof-content .publica
+{
+    float:left; 
+    margin-right:15px; 
+    border-right:1px solid #E8DED5; 
+}
+
+.prof-content .publica strong, .prof-content .ministrados strong
+{
+    display:block;
+    height:22px;  
+    margin-bottom:15px;  
+}
+
+.prof-content .publica strong
+{
+    padding-left:30px;
+    background:url("images/livro-transp.gif") no-repeat;     
+}
+
+.prof-content .ministrados strong
+{
+    padding-left:30px;
+    background:url("images/calendario-transp.gif") no-repeat;     
+}
+
+.prof-content .publica, .prof-content .ministrados
+{
+    overflow:hidden;
+    padding-right: 5px;
+    margin-top:25px;    
+    width:315px;
+}
+
+.prof-content .publica li, .prof-content .ministrados li
+{
+    background:url("images/bullet.gif") 0 7px no-repeat;
+    padding-left:15px;         
+} 
+
+/*********************
+    GALERIA DE FOTOS
+*********************/
+.galeria-fotos
+{
+    overflow:hidden;   
+}
+
+.large
+{
+    margin-left:48px;
+}
+
+.large img
+{
+    width:525px !important;
+    height:auto !important;
+}
+
+.galeria-fotos .thumbs
+{
+    overflow:hidden;    
+}
+
+.galeria-fotos .thumbs li
+{
+    float:left;    
+    margin-right:15px;
+    cursor:pointer;
+    opacity:0.8;
+    filter:alpha(opacity=80);
+}
+
+.galeria-fotos .thumbs li:hover
+{
+    opacity:1;
+    filter:alpha(opacity=100);
+}
+
+.modal-cursos {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+    display: none;
+}
+
+.modal-cursos .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: #000;
+    opacity: 0.5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    overflow-y: visible;
+}
+
+.modal-cursos .modal-content-wrapper {
+    position: absolute;
+    left: 50%;
+    margin-left: -375px;
+    top: 50%;
+    margin-top: -300px;
+    width: 720px;
+    height: 500px;
+    background: #fff;
+    padding: 40px 0px 30px 30px;
+}
+
+.modal-cursos .close {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    line-height: 18px;
+    text-align: center;
+    background: rgb(89, 1, 7);
+    color: #fff;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.modal-cursos .aceite:after {
+    content: "";
+    display: block;
+    clear: both;
+    width: 0;
+    height: 0;
+}
+
+.modal-cursos .aceite {
+    padding-top: 20px;
+    padding-right: 50px;
+}
+
+.modal-cursos .modal-content {
+    height: 400px;
+    overflow:auto;
+    padding: 20px 38px 20px 20px;
+}
+
+
+.checkbox-container {
+    padding-top: 5px;
+    width: 250px;
+    float: left;
+}
+
+.aceite .botao-vermelho {
+    float: right;
+}
+
+.aceite .botao-vermelho input {
+    background: none;
+    padding: 0 41px;
+    font-weight: bold;
+}
+
+
+.aceite .checkbox-container label {
+    display: block;
+}
+
+.aceite .checkbox-container label input {
+    margin-top: 1px;
+    display: block;
+    float: left;
+}
+
+
+#sliderproduct {
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+  border-radius: 4px;
+}
+
+#sliderproduct ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 200px;
+  list-style: none;
+}
+
+#sliderproduct ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 233px;
+  height: 206px;
+  background: #ccc;
+  text-align: center;
+  line-height: 300px;
+}
+
+/* Relógio promoção */
+
+.clock {
+    min-height: 65px;
+    padding-top: 30px;
+    padding-left: 250px;
+    padding-right: 25%;
+    background: #000000;
+    color: #fff;
+    border-top: solid #000000 15px;
+	background: url("images/timmer-model.png") repeat-x scroll 0 0;
+    background-position: 60% 100%;
+	display: none;
+}
+
+.clock p{
+
+}
+
+.clockpaneltitle{
+ float:left;
+}
+
+.clockpanel{
+   float:right;
+
+}
+
+.clock span{
+ padding: 8px 10px 8px 10px;
+ min-width: 40px;
+ background-color: rgb(2, 2, 2);
+ margin-left:10px;
+ font-size: 20px;
+ white-space: normal; 
+ float:left;
+ text-align:center;
+ font-weight: bold;
+}
+
+.clock span > text{
+     display: block;
+     font-size: 10px !important;
+     font-weight: normal !important;
+}
+
+.clockfalta {
+    /* Safari */
+    -webkit-transform: rotate(-90deg);
+    /* Firefox */
+    -moz-transform: rotate(-90deg);
+    /* IE */
+    -ms-transform: rotate(-90deg);
+    /* Opera */
+    -o-transform: rotate(-90deg);
+	
+    padding: 0px 0px 0px 0px;
+}
+

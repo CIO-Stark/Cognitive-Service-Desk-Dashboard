@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Conversation Widget</title>
+    <meta name="description" content="Conversation Widget POC">
+    <meta name="author" content="ricardo.gil@br.ibm.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saint Paul - Admin</title>
+
+    <link href="../css/nv.d3.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bulma.css">
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="../css/angular-material.min.css">
+
+    <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <script src="../js/vendor/angular-1.6.2.min.js"></script>
+    <script src="../js/vendor/angular-translate.min.js"></script>
+
+    <script src="../js/vendor/angular-route.js"></script>
+    <script src="../js/vendor/angular-animate.min.js"></script>
+    <script src="../js/vendor/angular-aria.min.js"></script>
+    <script src="../js/vendor/angular-messages.min.js"></script>
+    <script src="../js/vendor/angular-material.min.js"></script>
+
+
+    <!-- following nv.d3.js documentation, the d3.js must be no higher than v3.5.17 (can not be version > 4) -->
+    <!--<script src="../js/vendor/d3.js"></script>
+   <script src="../js/vendor/nv.d3.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-nvd3/1.0.9/angular-nvd3.min.js"></script>-->
+    <!-- http://krispo.github.io/angular-nvd3/#/ -->
+    <!--<script src="../js/directives/loading.js"></script>-->
+
+    <script src="../js/controller/components.js"></script>
+    <script src="../js/controller/adminController.js"></script>
+    <script src="../js/service/adminService.js"></script>
+    <script src="../js/controller/graphController.js"></script>
+    <script src="../js/service/graphService.js"></script>
+    <script src="../js/service/feedbackService.js"></script>
+
+    <script src="../js/controller/intentGraphController.js"></script>
+    <script src="../js/controller/platformGraphController.js"></script>
+    <script src="../js/controller/feedbackGraphController.js"></script>
+    <script src="../js/controller/insightsController.js"></script>
+
+    <script src="../js/controller/mainController.js"></script>
+
+
+    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.6/gridstack.min.css" />
+        -->
+    <style>
+        .panel-nvd3 {
+            padding: 0.5rem 1rem;
+        }
+        /* Absolute Center Spinner */
+        
+        .loading {
+            z-index: 999;
+            width: 100px;
+            margin: 5px auto;
+            display: block;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+    <div class="the-header" ng-controller="adminCtrl">
+        <nav id="navbar" class="nav">
+            <div class="nav-left">
+                <!-- <p id="sme-board">SME Board</p> -->
+                <img src="../img/IBM_Logo.png" id="logo-ibm" />
+            </div>
+
+            <span class="nav-toggle">
+        <span></span>
+            <span></span>
+            <span></span>
+            </span>
+
+            <div class="nav-right nav-menu">
+                <div class="nav-item is-white">
+                    <md-datepicker ng-model="$root.startDate"></md-datepicker>
+                </div>
+                <div class="nav-item">
+                    <md-datepicker ng-model="$root.endDate"></md-datepicker>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-button-container"><a id="filter" class="button is-white is-outlined is-small" ng-click="search()">Filtrar</a></span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-button-container is-hidden-tablet"><span class="icon"><i class="is-white fa fa-sign-out"></i></span></span>
+                    <span class="icon is-hidden-mobile"><i class="is-white fa fa-sign-out"></i></span>
+                </div>
+            </div>
+        </nav>
+
+        <!--logo-->
+        <span id="sp-logo" alt="Bulma logo" class="sp-logo"></span>
+
+
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container">
+
+                </div>
+            </div>
+        </section>
+
+        <div id="submenu" class="columns submenu">
+            <div class="column is-12 is-paddingless">
+                <div class="tabs is-centered">
+                    <ul>
+                        <li ng-class="metricsTab ? 'is-active': ''" ng-click="changeTab(1);">
+                            <a>
+                                <span class="icon is-small is-hidden-mobile"><i class="fa fa-bar-chart"></i></span>
+                                <span>Metrics</span>
+                            </a>
+                        </li>
+                        <li ng-class="insightsTab ? 'is-active': ''" ng-click="changeTab(2);">
+                            <a>
+                                <span class="icon is-small is-hidden-mobile"><i class="fa fa-bar-chart"></i></span>
+                                <span>Insights</span>
+                            </a>
+                        </li>
+                        <li ng-class="smeTab ? 'is-active': ''" ng-click="changeTab(3);">
+                            <a>
+                                <span class="icon is-small is-hidden-mobile"><i class="fa fa-file-text-o"></i></span>
+                                <span>SME Board</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body-content" ng-if="$root.metricsTab">
+        <div class="columns">
+            <div class="column">
+                <section class="hero is-small">
+                    <!-- main summary -->
+                    <div ng-include="'views/templates/headerInsight.html'"></div>
+                    <!-- main summary -->
+                </section>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="columns">
+                <div class="column is-7" ng-controller="intentGraphCtrl">
+                    <div class="panel">
+                        <p class="panel-heading">
+                            Intenções e Feedback
+                        </p>
+                        <!--<p class="panel-tabs">
+                <a class="is-active" href="#">All Time</a>
+                <a href="#">Past week</a>
+                <a href="#">Past month</a>
+                <a href="#">Past quarter</a>
+                <a href="#">Past Year</a>
+              </p>-->
+                        <div ng-hide="$root.loading" class="panel-block">
+                            <div class="field">
+                                <p class="control">
+                                    <div ng-class="intentDropDownLoading ? 'select is-small is-loading': 'select is-small'">
+                                        <select ng-change="updateIntent(dropdownIntent);" ng-model="dropdownIntent" ng-options="x for x in intentList">
+                                  <option disabled selected value="">Selecione uma intenção...</option>
+                      </select>
+                                    </div>
+
+                                </p>
+                            </div>
+                        </div>
+
+                        <div ng-show="loading.inMetrics" class="loading">
+                            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <nvd3 ng-hide="loading.inMetrics" class="panel-nvd3" options='options' data='data' api="api"></nvd3>
+                    </div>
+
+                    <div class="panel" ng-show="intentReportData">
+                        <div class="panel-heading">
+                            Relatório
+                        </div>
+                        <div ng-include="'views/templates/intentDetailTable.html'"></div>
+                    </div>
+                </div>
+
+
+                <div class="column is-5">
+
+                    <div class="panel" ng-controller="feedbackGraphCtrl">
+
+                        <p class="panel-heading">
+                            Feedback
+                        </p>
+                        <nvd3 ng-hide="loading" class="panel-nvd3 panel-block" options='options' data='data' api='api' config="{debounce: 10}"></nvd3>
+                        <div ng-show="loading" class="loading">
+                            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            <span class="sr-only">Loading...</span>
+                        </div>
+
+                    </div>
+
+                    <div class="panel" ng-controller="platformGraphCtrl">
+
+                        <p class="panel-heading">
+                            Channel
+                        </p>
+                        <nvd3 ng-hide="loading" class="panel-block panel-nvd3" options='options' data='data' api='api'></nvd3>
+                        <div ng-show="loading" class="loading">
+                            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            <span class="sr-only">Loading...</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!--<section class="section" ng-hide="startedUp">
+     Wwoooww
+   </section>-->
+    </div>
+
+    <div class="body-content" ng-if="$root.insightsTab" ng-include="'views/templates/insightsTab.html'"></div>
+    <div class="body-content" ng-if="$root.smeTab" ng-include="'views/templates/smeBoardTab.html'"></div>
+
+    <!--   <div class="columns">
+      <div class="column">
+      </div>
+
+   </div>-->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="has-text-centered">
+
+            </div>
+        </div>
+    </footer>
+
+    <script async type="text/javascript" src="../js/vendor/bulma.js"></script>
+    <script src="../js/vendor/jquery-1.10.2.min.js"></script>
+    <script src="../js/vendor/jquery-ui.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
+    <script src="../js/vendor/underscore-min.js"></script>
+
+
+    <script src="../js/vendor/angular-route.js"></script>
+    <script src="../js/vendor/angular-animate.min.js"></script>
+    <script src="../js/vendor/angular-aria.min.js"></script>
+    <script src="../js/vendor/angular-messages.min.js"></script>
+    <script src="../js/vendor/angular-material.min.js"></script>
+
+    <script src="../js/vendor/wordCloud2.js"></script>
+    <script src="../js/vendor/moment.min.js"></script>
+    <script src="../js/vendor/FileSaver.js"></script>
+
+
+    <!-- following nv.d3.js documentation, the d3.js must be no higher than v3.5.17 (can not be version > 4) -->
+    <script src="../js/vendor/d3.js"></script>
+    <script src="../js/vendor/nv.d3.js"></script>
+    <script src="../js/vendor/angular-nvd3.min.js"></script>
+    <!-- http://krispo.github.io/angular-nvd3/#/ -->
+
+</body>
+
+</html>

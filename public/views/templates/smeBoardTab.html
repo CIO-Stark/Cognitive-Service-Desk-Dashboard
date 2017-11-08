@@ -1,0 +1,118 @@
+<section class="section body-content" ng-controller="boardCtrl">
+	<div ng-show="smeLoading" class="loading">
+		<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+		<span class="sr-only">Loading...</span>
+	</div>
+	<div class="columns" ng-hide="smeLoading || !feedbackData">
+		<div class="column is-12">
+			<p class="panel-heading">
+				SME Board
+			</p>
+			<div class="panel-block">
+				<div class="level">
+					<div class="level-left">
+						<div class="level-item">
+							<div class="field">
+								<!--<label class="label">Filtro dos dados:</label>-->
+								<p class="control has-icons-right">
+									<input type="text" class="input is-small" ng-model="searchFilter" placeholder="Filtar...">
+									<span class="icon is-small is-right">
+										<i class="fa fa-search"></i>
+									</span>
+								</p>
+							</div>
+						</div>
+
+						<div class="level-item">
+							<button class="button is-small" ng-click="exportData()" ng-if="feedbackData">Export</button>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div id="smeBoardExportable" class="panel-nvd3" style="width: 100%; overflow-y: scroll;max-height: 650px;">
+				<table class="table is-narrow is-striped is-fullwidth" ng-if="feedbackData">
+					<thead>
+						<tr>
+							<th>
+								<a href="#" ng-click="sortType = 'userID'; sortReverse = !sortReverse">
+								<span translate=SMEBOARD.TABLE.USER></span>
+								<span ng-show="sortType == 'userID' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+								<span ng-show="sortType == 'userID' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+							</a>
+							</th>
+							<th>
+								<span translate=SMEBOARD.TABLE.QUESTIONS></span>
+							</th>
+							<th class="is-centered">
+								<a href="#" ng-click="sortType = 'feedbackStatus'; sortReverse = !sortReverse">
+								<span translate=SMEBOARD.TABLE.FEEDBACK></span>
+								<span ng-show="sortType == 'feedbackStatus' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+								<span ng-show="sortType == 'feedbackStatus' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+							</a>
+
+							</th>
+							<th>
+								Intenções</span>
+							</th>
+							<th>
+								<a href="#" ng-click="sortType = 'feedbackDate'; sortReverse = !sortReverse">
+							<span translate=SMEBOARD.TABLE.DATE></span>
+							<span ng-show="sortType == 'feedbackDate' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+							<span ng-show="sortType == 'feedbackDate' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+						</a>
+							</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr ng-repeat="feed in feedbackData | orderBy:sortType:sortReverse | filter:searchFilter ">
+							<!-- <td>
+						{{feed._id}}
+					</td> -->
+							<td>
+								{{feed.userID}}
+							</td>
+							<td>
+								<ul ng-repeat="chat in feed.chatHistory">
+									<li ng-if="chat.userId != 'watson'">
+										{{chat.text}}
+									</li>
+								</ul>
+							</td>
+							<td class="has-text-centered">
+								<span ng-if="feed.feedbackStatus == 'positive'">
+								<i class="fa fa-thumbs-o-up" aria-hidden="true"><span style="display: none">positivo</span></i>
+								</span>
+								<span ng-if="feed.feedbackStatus == 'negative'">
+								<i class="fa fa-thumbs-o-down" aria-hidden="true"><span style="display: none">negativo</span></i>
+								</span>
+							</td>
+
+							
+							<td>
+								<span ng-repeat="chat in feed.chatHistory">
+									<span ng-if="chat.intents.length > 0"> 
+										<ul ng-repeat="ent in chat.intents"> 
+											<li >
+												{{ent.intent}}
+											</li>
+											<li>
+												<span>Relevância:</span> {{((ent.confidence)*100).toFixed(2)}}%
+											</li>
+										</ul>
+									</span>
+								</span>
+							</td>
+							<td>
+								{{feed.feedbackDate | date:'yyyy-MM-dd HH:mm:ss'}}
+							</td>
+						</tr ng-repeat-end>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--<div class="column is-3">
+		</div>-->
+	</div>
+</section>

@@ -1,0 +1,303 @@
+#sme-board {
+    font-size: 30px;
+    color: black;
+}
+
+#logo-ibm {
+    /*max-width: 100px;*/
+    max-height: 35px;
+    margin-top: 8px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    height: 100%;
+    background: rgb(189, 189, 189) !important;
+    /*#fff*/
+}
+
+.button.is-success {
+    background-color: #2EB398;
+}
+
+a {
+    color: #175d8d;
+    /*#6A1B20*/
+}
+
+.nav {
+    background-color: #fff;
+    /*#6A1B20*/
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+.nav-item img {
+    max-height: 2.5rem;
+}
+
+.nav-item {
+    background-color: #fff !important;
+    /*#6A1B20*/
+    color: #19273c !important;
+    /*#f6f1df*/
+}
+
+.nav-toggle span,
+.nav-toggle.is-active span {
+    background-color: #19273c !important;
+    /*#eee*/
+}
+
+.nav-button-container {
+    margin-left: 16px;
+}
+
+.nav-toggle:hover {
+    background: transparent;
+}
+
+.is-white {
+    color: #19273c;
+    /*#eee*/
+}
+
+.nav.is-dark {
+    background-color: #232B2D;
+    color: #F6F7F7;
+}
+
+.nav.is-dark .nav-item a,
+.nav.is-dark a.nav-item {
+    color: #F6F7F7;
+}
+
+.nav.is-dark .nav-item a.button.is-default {
+    color: #F6F7F7;
+    background-color: transparent;
+    border-width: 2px;
+}
+
+.aside {
+    background-color: #354052;
+    margin-right: -10px;
+}
+
+.aside .main {
+    padding: 40px;
+    color: #6F7B7E;
+}
+
+.aside .title {
+    color: #6F7B7E;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.aside .main .item {
+    display: block;
+    padding: 10px 0;
+    color: #6F7B7E;
+}
+
+.aside .main .item.active {
+    color: #F6F7F7;
+}
+
+.aside .main .icon {
+    font-size: 19px;
+    padding-right: 30px;
+}
+
+.aside .main .name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.admin-panel {
+    padding-bottom: 0;
+}
+
+.content {
+    display: block;
+    background-color: #fff;
+    padding: 40px 20px;
+}
+
+.hero .tabs ul {
+    border-bottom: 1px solid #d3d6db;
+}
+
+.logo {
+    position: absolute !important;
+    z-index: 0;
+}
+
+.logo.main {
+    height: 70%;
+    left: 3%;
+    top: 22%;
+    width: 16%;
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+}
+
+.main-logo {
+    position: relative !important;
+    z-index: 0;
+    width: 20%;
+    left: 2%;
+    top: 1%;
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+}
+
+.navbar-sp-logo {
+    height: 100%;
+    transition: height 5s;
+    -webkit-transition: height 5s;
+}
+
+.inactive {
+    top: 8px !important;
+    left: 16px !important;
+    position: fixed !important;
+    height: 38px !important;
+    width: 260px !important;
+    z-index: 2 !important;
+}
+
+.sp-logo {
+    top: 100px;
+    left: 60px;
+    width: 260px;
+    height: 90px;
+    position: fixed;
+    z-index: 0;
+    transition: 1s;
+    -webkit-transition: 1s;
+    background-repeat: no-repeat;
+    background-position: center left 0px;
+    /*background-image: url("../img/IBM_Logo.png");*/
+    background-size: contain;
+}
+
+.panel-block,
+.panel-heading,
+.panel-nvd3 {
+    border: none !important;
+    background: transparent;
+}
+
+.panel-heading {
+    border-bottom: 1px solid rgb(61, 112, 178) !important;
+    /*#dbdbdb*/
+}
+
+.banner .hero-body {
+    min-height: 30px;
+    /*200*/
+    margin-top: 10px;
+    /*52px*/
+}
+
+.banner,
+.submenu,
+.footer {
+    background-color: rgb(15, 33, 46);
+    /*#f6f1df*/
+}
+
+.tabs li a:hover,
+.tabs li.is-active a {
+    background-color: #1d3458 !important;
+    /*#f6f1df */
+    border-color: #e1ebf7 !important;
+    /*#9B070E*/
+    color: #e1ebf7;
+    /*#9B070E*/
+}
+
+.tabs li:focus {
+    outline: none !important;
+}
+
+
+/*.is-brown {
+    background-color: transparent !important;
+    border-color: #4a4a4a !important;
+    color: #4a4a4a !important;
+}
+
+.is-brown:hover {
+    border-color: #9B070E !important;
+    color: #9B070E !important;
+}*/
+
+.the-header {
+    margin-bottom: 25px;
+}
+
+.md-icon,
+.md-datepicker-input,
+.md-button.md-icon-button,
+.md-button.md-icon-button md-icon,
+button.md-button.md-fab md-icon {
+    color: #19273c !important;
+    /*#ddd*/
+}
+
+.md-default-theme .md-datepicker-triangle-button .md-datepicker-expand-triangle,
+.md-datepicker-triangle-button .md-datepicker-expand-triangle {
+    border-top-color: #19273c;
+    /*rgba(255, 255, 255, 0.48)*/
+}
+
+.md-default-theme .md-datepicker-triangle-button .md-datepicker-expand-triangle,
+.md-datepicker-triangle-button .md-datepicker-expand-triangle,
+.md-default-theme .md-datepicker-input-container,
+.md-datepicker-input-container {
+    border-bottom-color: rgb(61, 112, 178) !important;
+    /*rgba(255, 255, 255, 0.28)*/
+}
+
+.hide {
+    display: none !important;
+}
+
+.nvd3 .nv-multibar .nv-groups rect,
+.nvd3 .nv-multibarHorizontal .nv-groups rect,
+.nvd3 .nv-discretebar .nv-groups rect {
+    cursor: pointer;
+}
+
+.select:after,
+.select select:focus,
+.select select.is-focused,
+.select select:active,
+.select select.is-active,
+.button:focus,
+.button.is-focused,
+.input:focus,
+.input.is-focused,
+.input:active,
+.input.is-active,
+.textarea:focus,
+.textarea.is-focused,
+.textarea:active,
+.textarea.is-active {
+    border-color: #009bef;
+    /*#6A1B20*/
+}
+
+.body-content {
+    min-height: 400px;
+}

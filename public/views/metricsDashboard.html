@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html ng-app="myApp"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Conversation Widget</title>
+        <meta name="description" content="Conversation Widget POC">
+        <meta name="author" content="ricardo.gil@br.ibm.com">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/main.css"> -->
+        
+        <!--<link rel="stylesheet" href="js/conversation_widget/css/widget.style.css">-->
+        <link rel="stylesheet" href="../js/conversation_widget/dist/css/widget.style.min.css">
+        <!-- Angular Material style sheet -->
+  		<link rel="stylesheet" href="../css/angular-material.min.css">
+        <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+        
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+    	<link href="../css/style.css" rel="stylesheet">
+    	<script src="../js/vendor/angular-1.6.2.min.js"></script>
+    	<script src="../js/vendor/angular-translate.min.js"></script>
+    	
+    	<script src="../js/vendor/angular-route.js"></script>
+    	<script src="../js/vendor/angular-animate.min.js"></script>
+ 		<script src="../js/vendor/angular-aria.min.js"></script>
+  		<script src="../js/vendor/angular-messages.min.js"></script>
+  		<script src="../js/vendor/angular-material.min.js"></script>
+    	
+    	
+    	<!-- following nv.d3.js documentation, the d3.js must be no higher than v3.5.17 (can not be version > 4) -->
+    	<script src="../js/vendor/d3.js"></script>
+    	<script src="../js/vendor/nv.d3.js"></script>
+    	<script src="../js/vendor/angular-nvd3.min.js"></script> <!-- http://krispo.github.io/angular-nvd3/#/ -->
+        <link href="../css/nv.d3.css" rel="stylesheet">    	
+    	
+    	<script src="../js/controller/components.js"></script>
+    	<script src="../js/controller/graphController.js"></script>
+    	<script src="../js/service/graphService.js"></script>
+    	<script src="../js/service/feedbackService.js"></script>
+
+	<script src="../js/controller/adminController.js"></script>
+   	<script src="../js/service/adminService.js"></script>
+	<script src="../js/controller/intentGraphController.js"></script>
+   	<script src="../js/controller/platformGraphController.js"></script>
+
+        <script src="../js/controller/mainController.js"></script>
+        
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.6/gridstack.min.css" />
+    	
+    </head>
+    <body ng-controller="graphCtrl">
+    	   <div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-6">
+							</div>
+							<div class="col-md-6">
+								 <span class="label label-default">{{ message }}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12">
+							<nav class="navbar navbar-default" role="navigation">
+								<div class="navbar-header">									 
+									 <img class="main-logo" src="/img/saint-paul-logo.png" />
+								</div>
+								
+								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+									
+									<form class="navbar-form navbar-left" role="search">
+										<a class="navbar-brand" href="#" translate=MAIN.TITLE></a>
+										<md-datepicker ng-model="$root.startDate"></md-datepicker>
+										<md-datepicker ng-model="$root.endDate"></md-datepicker>
+										<ul class="nav navbar-nav">
+											<li class="dropdown">
+											 	<a href="#" class="dropdown-toggle" id="dropSearch" data-toggle="dropdown" translate=MAIN.FILTER><strong class="caret"></strong></a>
+												<ul class="dropdown-menu">
+													<li>
+														<a href="#" ng-click="search(2);" translate=MAIN.FILTER.DAILY></a>
+													</li>
+													<li>
+														<a href="#"  ng-click="search(3);" translate=MAIN.FILTER.WEEKLY></a>
+													</li>
+													<li>
+														<a href="#"  ng-click="search(4);" translate=MAIN.FILTER.MONTHLY></a>
+													</li>
+												</ul>
+												</li>
+										</ul>
+										<button type="button" id="searchButton" class="btn btn-default" ng-click="search();">
+											<span translate=MAIN.FILTER.ACTION></span>
+										</button>
+									</form>
+									
+								</div>
+								
+							</nav>
+					</div> <!-- column -->
+				</div> <!-- row -->	
+				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tabbable" id="tabs-640238">
+							<ul class="nav nav-tabs">
+								<li class="active">
+									<a href="#panel-1" data-toggle="tab" translate=MAIN.TAB.METRICS></a>
+								</li>
+								<li>
+									<a href="#panel-2" data-toggle="tab" translate=MAIN.TAB.TRAINING></a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="panel-1">
+									<ul style="list-style-type: none; padding: 0px 10px 0px 10px; box-shadow: 5px 5px 5px grey;">
+					            		
+					            		<li class="col-xs-12 col-md-12">
+							                <div style="box-shadow: 1px 1px 1px grey;">
+							                	<nvd3 options='optionsAccuracy' data='dataAccuracy'></nvd3>
+							                </div>	
+					            		</li>
+					            		 
+					            		<!-- <li class="col-xs-6 col-md-4">
+							                <nvd3 options='optionsPie' data='dataPie'></nvd3>	
+					            		</li> -->
+					            		
+					            		<li class="col-xs-3 col-md-3;">
+							                <div style="box-shadow: 1px 1px 1px grey;">
+							               		<nvd3 options='optionsUsers' data='dataUsers'></nvd3>	
+							               	</div>
+					            		</li>
+					            		
+					            		<li class="col-xs-3 col-md-3">
+							                <div style="box-shadow: 1px 1px 1px grey;">
+							                	<nvd3 options='optionsFeedback' data='dataFeedback'></nvd3>
+							                </div>	
+					            		</li>
+					            		
+					            		<li class="col-xs-3 col-md-3">
+							                <div style="box-shadow: 1px 1px 1px grey;">
+							                	<nvd3 options='optionsCountry' data='dataCountry'></nvd3>
+							                </div>	
+					            		</li>
+					            		
+					            		<li class="col-xs-3 col-md-3;">
+					            			<div style="box-shadow: 1px 1px 1px grey;">
+							                	<nvd3 options='optionsPlatformBar' data='dataPlatform'></nvd3>	
+							                </div>
+					            		</li>
+					        		</ul>
+								</div>
+								<div class="tab-pane" id="panel-2">
+									<div class="row">
+										<div class="col-md-8">
+											 <div ng-include="'views/templates/smeBoard.html'"></div>
+										</div>
+										<div class="col-md-4">
+											 <div ng-include="'views/templates/smeBoardGraph.html'"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> <!-- column -->
+				</div> <!-- row -->	
+				
+				<!-- <div>
+					<div class="grid-stack">
+					    <div class="grid-stack-item"
+					        data-gs-x="0" data-gs-y="0"
+					        data-gs-width="4" data-gs-height="2">
+					            <div class="grid-stack-item-content">dsdsdsds</div>
+					    </div>
+					    <div class="grid-stack-item"
+					        data-gs-x="4" data-gs-y="0"
+					        data-gs-width="4" data-gs-height="4">
+					            <div class="grid-stack-item-content">sddsdsds</div>
+					    </div>
+					</div>
+
+
+				</div> -->
+						
+			</div>
+    
+   <!--  <a href="#/teste"> Home</a>
+        <div ng-view></div>
+     
+     <tabs>
+      <pane title="Localization">
+        <span>Date: {{ '2012-04-01' | date:'fullDate' }}</span><br>
+        <span>Currency: {{ 123456 | currency }}</span><br>
+        <span>Number: {{ 98765.4321 | number }}</span><br>
+      </pane>
+      <pane title="Pluralization">
+        <div ng-controller="BeerCounter">
+          <div ng-repeat="beerCount in beers">
+            <ng-pluralize count="beerCount" when="beerForms"></ng-pluralize>
+          </div>
+        </div>
+      </pane>
+    </tabs>
+ -->
+
+        <script src="../js/vendor/jquery-1.10.2.min.js"></script>
+        <script src="../js/vendor/jquery-ui.min.js"></script>
+    	<script src="../js/vendor/bootstrap.min.js"></script>
+    	<script src="../js/vendor/underscore-min.js"></script>
+    	<script type="text/javascript">
+			$(function () {
+			    var options = {
+			        cell_height: 80,
+			        vertical_margin: 10
+			    };
+			    $('.grid-stack').gridstack(options);
+			});
+		</script>
+		<script type="text/javascript" src='//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.6/gridstack.min.js'></script>
+
+    </body>
+</html>
