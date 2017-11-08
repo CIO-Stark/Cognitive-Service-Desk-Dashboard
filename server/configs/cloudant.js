@@ -5,9 +5,9 @@
     "use strict";
     var Cloudant = require("cloudant"),
         credentials = {
-            "username": JSON.parse(process.env.VCAP_SERVICES)["cloudantNoSQLDB"][0].credentials.username,
-            "password": JSON.parse(process.env.VCAP_SERVICES)["cloudantNoSQLDB"][0].credentials.password, 
-            "endpoint": JSON.parse(process.env.VCAP_SERVICES)["cloudantNoSQLDB"][0].credentials.host 
+            "username": JSON.parse(process.env.VCAP)["cloudantNoSQLDB"][0].credentials.username,
+            "password": JSON.parse(process.env.VCAP)["cloudantNoSQLDB"][0].credentials.password, 
+            "endpoint": JSON.parse(process.env.VCAP)["cloudantNoSQLDB"][0].credentials.host 
         };
 
     module.exports = {
